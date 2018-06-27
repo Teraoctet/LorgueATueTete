@@ -1,0 +1,10 @@
+BUGS
+
+FEATURES
+- comportement si réseau pas trouvé ?
+- animation LED
+
+
+BONUS
+- broadcaster son ip + handshake
+- envoyer son etat : nom, position de reference, offsets, etc...
