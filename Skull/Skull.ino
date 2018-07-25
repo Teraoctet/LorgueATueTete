@@ -1,4 +1,3 @@
-#include <Servo.h>
 #include <ESP8266WiFi.h>
 #include <WiFiClient.h>
 #include <WiFiUDP.h>
@@ -7,8 +6,19 @@
 #include "WifiUDP.h"
 #include <EEPROM.h>
 
-const int SKULL_ID = 2;
+//#define SOLIST // COMMENT FOR NON SOLISTS
+
+/////////////////
+// ID and NAME //
+/////////////////
+#ifndef SOLIST
+const int SKULL_ID = 2; // SET SKULL ID HERE: 1 to 7
+#else
+const int SKULL_ID = 0; // do not change
+#endif
+
 String SKULL_NAMES[8] = { "Jack", "Sissi", "Ninon", "Hubert", "Jerry", "Nancy", "Franck", "Pat"};
+const String SKULL_NAME = SKULL_NAMES[SKULL_ID];
 
 //////////
 // WiFi //
@@ -18,7 +28,7 @@ const char* password = "connectemoi";
 const unsigned int outPort = 12345;
 const unsigned int listenPort = 54321;
 WiFiUDP Udp;
-IPAddress outIp(192, 168, 43, 125); // the real address will be set by the handshake
+IPAddress outIp(192, 168, 43, 125); // the last byte will be set by the EEPROM or the handshake
 
 int pingTimeInMs = 3000;
 unsigned long lastPingTime = 0;
@@ -26,10 +36,20 @@ unsigned long lastPingTime = 0;
 ///////////
 // Servo //
 ///////////
+const int SERVO_INIT_VALUE = 90; // init servo at mid position
+
+#ifndef SOLIST
+#include <Servo.h>
 const int SERVO_PIN = 5;
 Servo servo;
-const int SERVO_INIT_VALUE = 90; // init servo at mid position
-int servoValue = SERVO_INIT_VALUE;
+
+#else
+Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
+#define SERVOMIN  150 // this is the 'minimum' pulse length count (out of 4096)
+#define SERVOMAX  574 // this is the 'maximum' pulse length count (out of 4096)
+#include <Adafruit_PWMServoDriver.h>
+
+#endif
 
 
 /////////////////
@@ -61,9 +81,14 @@ void setup(void)
   Udp.begin(listenPort);
     
   // set up servo
+  #ifndef SOLIST
   pinMode(SERVO_PIN, OUTPUT);
   servo.attach(SERVO_PIN);
-  servo.write(servoValue);
+  servo.write(SERVO_INIT_VALUE);
+  #else
+  pwm.begin();
+  pwm.setPWMFreq(60);  // Analog servos run at ~60 Hz updates
+  #endif
 
   // read target ip from EEPROM
   EEPROM.begin(512);
@@ -81,7 +106,7 @@ OSCMessage handshake_message()
 {
   OSCMessage msg("/handshake");
   msg.add(SKULL_ID);
-  msg.add(SKULL_NAMES[SKULL_ID].c_str());
+  msg.add(SKULL_NAME.c_str());
   msg.add(WiFi.localIP().toString().c_str());
 
   // get and send target IP
@@ -96,7 +121,7 @@ void loop(void)
   {
     OSCMessage pingmsg("/ping");
     pingmsg.add(SKULL_ID);
-    pingmsg.add(SKULL_NAMES[SKULL_ID].c_str());
+    pingmsg.add(SKULL_NAME.c_str());
     pingmsg.add(WiFi.localIP().toString().c_str());
     send_message(pingmsg);
     lastPingTime = millis();
@@ -148,12 +173,30 @@ void send_config(OSCMessage &msg, int addrOffset)
 
 void set_servo(OSCMessage &msg, int addrOffset)
 {
+  #ifndef SOLIST
   if (msg.isInt(0))
   {
-    int val = msg.getInt(0);
-    servoValue = min(180, max(0, SERVO_INIT_VALUE + val));
+    int servoValue = min(180, max(0, SERVO_INIT_VALUE + msg.getInt(0)));
     servo.write(servoValue);
   }
   else send_simple_message("/error");
+  #else
+  int index = -1;
+  if (msg.match("/0", addrOffset)) index = 0;
+  if (msg.match("/1", addrOffset)) index = 1;
+  if (msg.match("/2", addrOffset)) index = 2;
+  if (msg.match("/3", addrOffset)) index = 3;
+  if (msg.match("/4", addrOffset)) index = 4;
+  if (msg.match("/5", addrOffset)) index = 5;
+  if (msg.match("/6", addrOffset)) index = 6;
+  
+  if (index >= 0 && msg.isInt(0))
+  {
+    int servoValue = min(180, max(0, SERVO_INIT_VALUE + msg.getInt(0)));
+    pwm.setPWM(index, 0, map(servoValue, 0, 180, SERVOMIN, SERVOMAX));
+  }
+  else sendSimpleOSCMessage("/error");
+
+  #endif
 }
 
