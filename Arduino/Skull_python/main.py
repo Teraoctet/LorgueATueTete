@@ -6,6 +6,8 @@ import network
 import uosc.server
 from uosc.client import Client
 # from uasyncio.core import get_event_loop
+TARGET_IP = "192.168.43.52"
+TARGET_PORT = 12345
 
 machine.Pin(0, machine.Pin.OUT).value(1)
 machine.Pin(2, machine.Pin.OUT).value(1)
@@ -21,17 +23,6 @@ set_leds(0, 0, 0)
 print('Initializing PCA9685...')
 i2c = machine.I2C(scl=machine.Pin(5), sda=machine.Pin(4))
 servos = servo.Servos(i2c)
-
-print('Move !')
-for i in range(8):
-    servos.position(i, 90)
-    time.sleep(0.1)
-
-for i in range(8):
-    servos.position(i, 0)
-    time.sleep(0.1)
-
-time.sleep(1.0)
 
 print('Start scanning')
 ssid = 'LeNet'
@@ -57,12 +48,12 @@ set_leds(0, 150, 0)
 leds.write()
 
 print('Setting up OSC client...')
-osc = Client("192.168.43.227", 12345)
+osc = Client(TARGET_IP, TARGET_PORT)
 print('Ok')
-osc.send('/wake', 42, 3.1419, "spamm")
+osc.send('/wake', 0, "Jack", sta_if.ifconfig()[0])
 print('Done')
 
-set_leds(150, 150, 0)
+set_leds(0, 150, 0)
 leds.write()
 
 def osc_handler(data, src, dispatch=None, strict=False):
@@ -82,9 +73,15 @@ def osc_handler(data, src, dispatch=None, strict=False):
     try:
         for timetag, (oscaddr, tags, args) in messages:
             #print("OSC : %s" % oscaddr )
+            #osc.send('/osc', "ok")
 
-            if oscaddr == "/handshake":
+            if oscaddr == "/handshake" and tags == 'iiii':
+                osc.send('/handshake', "ok")
+                osc.close()
+                TARGET_IP = '.'.joint([str(arg) for arg in args])
+                osc = Client(TARGET_IP, TARGET_PORT)
                 osc.send('/handshake', 0, "Jack", sta_if.ifconfig()[0])
+                osc.send('/ping', 0, "Jack", sta_if.ifconfig()[0])
 
             elif oscaddr == "/servo" and tags == 'ii':
                 #print(args)
@@ -92,6 +89,12 @@ def osc_handler(data, src, dispatch=None, strict=False):
                 index = min(8, max(0, index))
                 value = min(180, max(0, value))
                 servos.position(index, value)
+
+            elif oscaddr == "/servo" and tags == 'i':
+                # JAW
+                value = args[0]
+                value = min(180, max(0, value))
+                servos.position(3, value)
 
             elif oscaddr.startswith("/servo") and tags == 'i':
                 index = int(oscaddr.split('/')[-1])
@@ -118,7 +121,8 @@ def osc_handler(data, src, dispatch=None, strict=False):
 
 
 print('Setting up OSC server...')
-uosc.server.run_server('0.0.0.0', 12345, handler=osc_handler)
+osc.send('/start', "ok")
+uosc.server.run_server('0.0.0.0', 54321, handler=osc_handler)
 # TODO : timeout error in console
 
 # same timeout error in console...

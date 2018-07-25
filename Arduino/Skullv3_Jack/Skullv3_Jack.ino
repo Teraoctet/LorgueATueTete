@@ -10,8 +10,8 @@
 #include <Wire.h>
 #include <Adafruit_PWMServoDriver.h>
 
-const int SKULL_ID = 0;
-const char* SKULL_NAME = "Jack";
+const int SKULL_ID = 1;
+const char* SKULL_NAME = "Jack2";
 
 //////////
 // WiFi //
@@ -23,7 +23,7 @@ const unsigned int listenPort = 54321;
 WiFiUDP Udp;
 IPAddress outIp(192, 168, 43, 52); // the real address will be set by the handshake
 
-int pingTimeInMs = 3000;
+int pingTimeInMs = 1000;
 unsigned long lastPingTime = 0;
 
 ///////////
@@ -34,7 +34,7 @@ const int LEDS_PIN = 14;
 Adafruit_NeoPixel pixels = Adafruit_NeoPixel(NUMLEDS, LEDS_PIN, NEO_GRB + NEO_KHZ800);
 float ledVal = 0;
 float ledInc = .5;
-boolean ledActive = false;
+boolean ledActive = true;
 
 ////////////
 // Servos //
@@ -43,7 +43,6 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVOMIN  150 // this is the 'minimum' pulse length count (out of 4096)
 #define SERVOMAX  574 // this is the 'maximum' pulse length count (out of 4096)
 const int SERVO_INIT_VALUE = 90;
-
 
 void setup(void)
 {

@@ -6,19 +6,10 @@
 #include <OSCBundle.h>
 #include "WifiUDP.h"
 #include <EEPROM.h>
-/*
-const int SKULL_ID = 1;
-const char* SKULL_NAME = "Sissi";
 
-const int SKULL_ID = 2;
-const char* SKULL_NAME = "Ninon";
-*/
 const int SKULL_ID = 3;
-const char* SKULL_NAME = "Gordon";
-/*
-const int SKULL_ID = 4;
-const char* SKULL_NAME = "Hubert";
-*/
+String SKULL_NAMES[8] = { "Jack", "Sissi", "Ninon", "Hubert", "Jerry", "Nancy", "Franck", "Pat"};
+
 //////////
 // WiFi //
 //////////
@@ -57,11 +48,18 @@ void setup(void)
 
 void loop(void)
 {
-  wifi_sendPing();
-  wifi_routeMessages();
+  wifi_send_ping();
+  wifi_route_messages();
 
   // Sanity delay
   delay(5);
+}
+
+char* to_char_array(String s)
+{
+  char chararr[s.length()+1]; // why +1 ?
+  s.toCharArray(chararr, s.length()+1);
+  return chararr;
 }
 
 void sendSimpleOSCMessage(char* address)
