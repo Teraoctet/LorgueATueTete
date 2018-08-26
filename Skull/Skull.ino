@@ -6,13 +6,13 @@
 #include "WifiUDP.h"
 #include <EEPROM.h>
 
-//#define SOLIST // COMMENT FOR NON SOLISTS
+#define SOLIST // COMMENT FOR NON SOLISTS
 
 /////////////////
 // ID and NAME //
 /////////////////
 #ifndef SOLIST
-const int SKULL_ID = 2; // SET SKULL ID HERE: 1 to 7
+const int SKULL_ID = 3; // SET SKULL ID HERE: 1 to 7
 #else
 const int SKULL_ID = 0; // do not change
 #endif
@@ -28,9 +28,9 @@ const char* password = "connectemoi";
 const unsigned int outPort = 12345;
 const unsigned int listenPort = 54321;
 WiFiUDP Udp;
-IPAddress outIp(192, 168, 43, 125); // the last byte will be set by the EEPROM or the handshake
+IPAddress outIp(192, 168, 43, 25); // the last byte will be set by the EEPROM or the handshake
 
-int pingTimeInMs = 3000;
+int pingTimeInMs = 1000;
 unsigned long lastPingTime = 0;
 
 ///////////
@@ -42,13 +42,11 @@ const int SERVO_INIT_VALUE = 90; // init servo at mid position
 #include <Servo.h>
 const int SERVO_PIN = 5;
 Servo servo;
-
 #else
+#include <Adafruit_PWMServoDriver.h>
 Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVOMIN  150 // this is the 'minimum' pulse length count (out of 4096)
 #define SERVOMAX  574 // this is the 'maximum' pulse length count (out of 4096)
-#include <Adafruit_PWMServoDriver.h>
-
 #endif
 
 
@@ -195,8 +193,7 @@ void set_servo(OSCMessage &msg, int addrOffset)
     int servoValue = min(180, max(0, SERVO_INIT_VALUE + msg.getInt(0)));
     pwm.setPWM(index, 0, map(servoValue, 0, 180, SERVOMIN, SERVOMAX));
   }
-  else sendSimpleOSCMessage("/error");
+  else send_simple_message("/error");
 
   #endif
 }
-
