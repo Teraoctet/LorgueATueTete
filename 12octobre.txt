@@ -8,7 +8,7 @@ multiple out : config avec ASIO4ALL ok
 
 
 BUGS
-20:49 - SkullUDP indique Muted alors que non
+20:49 - SkullUDP indique Muted alors que non OK
 
 FEATURES
 - lateralisation OK
@@ -25,6 +25,11 @@ A REGARDER
 
 ROAD MAP
 - tests sons MIDI
+	graves de samples ooh yeah
+	Be Someone : a tester
+	FINGERTIP MIDI VOX : country, doo wop et gospel cools
+- tests effets sur les voix
+
 - composition chants et interventions
 - fignolage du son
 - taff de réglages automatisés
