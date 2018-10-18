@@ -1,7 +1,11 @@
 Jack
 	valeurs de machoires trop grandes
 	valeurs médianes à vérifier
-	bloquer l'envoi de valeurs au lancement du device
+	bloquer l'envoi de valeurs au lancement du device OK
+	lancement d'automation avec les boutons => MIDI ou bouton M4L ?
+	déclenchement OSC: JoystickOSC ne marche plus => Chataigne
+	méthodo enregistrement enveloppe + son
+	PROBLEME pictslider pas automatable
 
 
 SkullUDP

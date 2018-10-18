@@ -1,0 +1,13 @@
+TODO
+	Ewen : branchement de micro 48V ?
+	OK pictslider automatable
+	appui long/court => détecter le temps de release => utiliser un autre bouton en attendant
+	déclenchement de clip avec les boutons du joystick
+
+	méthodo d'enregistrement sur mac
+	Chataigne OSC Joystick
+
+	compo générale
+		quel paramètre pour le gain ?
+
+	Oscilloscope
