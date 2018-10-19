@@ -1,8 +1,11 @@
 TODO
-	Ewen : branchement de micro 48V ?
-	OK pictslider automatable
+OK	Ewen : branchement de micro 48V ?
+Ok	 pictslider automatable
 	appui long/court => détecter le temps de release => utiliser un autre bouton en attendant
+		MAIS NON un bouton active le record sur le on et stop sur le off !
+
 	déclenchement de clip avec les boutons du joystick
+		https://www.youtube.com/watch?v=yLpvJho5hQA
 
 	méthodo d'enregistrement sur mac
 	Chataigne OSC Joystick
