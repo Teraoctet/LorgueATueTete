@@ -31,6 +31,7 @@ Necromant
 	- min/max pour chaque IP/id
 	- IP modifiable
 	- récupère l'info de SkullUDP et l'envoie sur l'ip
+	- bouton Invoquer les morts pour quand on change d'ordi ou d'ip
 
 Fonctionnement en Session ou en Arrangement ?
 => les automations Arrangement et enveloppes de Session  sont cumulatives ! donc plutôt travailler sur les clips Session
