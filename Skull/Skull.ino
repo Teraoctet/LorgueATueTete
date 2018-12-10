@@ -6,7 +6,7 @@
 #include "WifiUDP.h"
 #include <EEPROM.h>
 
-#define SOLIST // COMMENT FOR NON SOLISTS
+//#define SOLIST // COMMENT FOR NON SOLISTS
 
 /////////////////
 // ID and NAME //
@@ -26,9 +26,10 @@ const String SKULL_NAME = SKULL_NAMES[SKULL_ID];
 const char* ssid = "LeNet";
 const char* password = "connectemoi";
 const unsigned int outPort = 12345;
-const unsigned int listenPort = 54321;
+const unsigned int udpPort = 54321;
+const unsigned int tcpPort = 55555;
 WiFiUDP Udp;
-IPAddress outIp(192, 168, 43, 25); // the last byte will be set by the EEPROM or the handshake
+IPAddress outIp(192, 168, 43, 52); // the last byte will be set by the EEPROM or the handshake
 
 int pingTimeInMs = 1000;
 unsigned long lastPingTime = 0;
@@ -72,11 +73,12 @@ void send_message(OSCMessage &msg)
 ////////  
 void setup(void)
 {
+  
   // set up wifi
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
   while (WiFi.status() != WL_CONNECTED)delay(5);
-  Udp.begin(listenPort);
+  Udp.begin(udpPort);
     
   // set up servo
   #ifndef SOLIST
@@ -174,7 +176,7 @@ void set_servo(OSCMessage &msg, int addrOffset)
   #ifndef SOLIST
   if (msg.isInt(0))
   {
-    int servoValue = min(180, max(0, SERVO_INIT_VALUE + msg.getInt(0)));
+    int servoValue = constrain(SERVO_INIT_VALUE + msg.getInt(0), 0, 180);
     servo.write(servoValue);
   }
   else send_simple_message("/error");
@@ -190,7 +192,7 @@ void set_servo(OSCMessage &msg, int addrOffset)
   
   if (index >= 0 && msg.isInt(0))
   {
-    int servoValue = min(180, max(0, SERVO_INIT_VALUE + msg.getInt(0)));
+    int servoValue = constrain(SERVO_INIT_VALUE + msg.getInt(0), 0, 180);
     pwm.setPWM(index, 0, map(servoValue, 0, 180, SERVOMIN, SERVOMAX));
   }
   else send_simple_message("/error");
