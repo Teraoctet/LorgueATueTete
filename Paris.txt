@@ -1,0 +1,26 @@
+live slider : pourquoi le controle souris est bloqué ?
+	=> ca marche apres redemarrage de Live, ca a l'air d'être un bug de Live ou M4L
+bug init oscilloscope	
+
+
+premiere connexion :
+	Thing ne se connecte pas, n'initie pas le servo => port COM mal détecté
+		=> finalement elle est repérée dans Necromant mais ne réagit pas à SkullUDP
+	HUZZAH non repérée, pourquoi ?
+
+TODO 
+	- spreadsheet requests
+	- factures
+	- setup de base
+	- audio disabled
+	- data255
+	- port TCP + TCP dans max
+	- loadbang ip necromant
+	- test Wireshark
+
+
+TODO 2
+	- acheter routeur ?
+	- mécanique Jack : manipulation, déporter branchement, anneaux fils
+	- réglages Jack
+	- 
