@@ -1,21 +1,12 @@
-live slider : pourquoi le controle souris est bloqué ?
-	=> ca marche apres redemarrage de Live, ca a l'air d'être un bug de Live ou M4L
-bug init oscilloscope	
-
-
-premiere connexion :
-	Thing ne se connecte pas, n'initie pas le servo => port COM mal détecté
-		=> finalement elle est repérée dans Necromant mais ne réagit pas à SkullUDP
-	HUZZAH non repérée, pourquoi ?
 
 TODO 
-	- spreadsheet requests
-	- factures
+OK	- spreadsheet requests
+OK	- factures
 	- setup de base
-	- audio disabled
+OK	- audio disabled
 	- data255
 	- port TCP + TCP dans max
-	- loadbang ip necromant
+OK	- loadbang ip necromant
 	- test Wireshark
 
 
@@ -24,3 +15,26 @@ TODO 2
 	- mécanique Jack : manipulation, déporter branchement, anneaux fils
 	- réglages Jack
 	- 
+
+
+
+
+
+Fonctionnement en Session ou en Arrangement ?
+=> les automations Arrangement et enveloppes de Session  sont cumulatives ! donc plutôt travailler sur les clips Session
+
+POUR ENREGISTRER L'AUTOMATION EN SESSION IL FAUT FAIRE UN ENREGISTREMENT DU CLIP VERS UN AUTRE CLIP !!
+	CE SONT DES ENVELOPPES QUE JE VEUX ENREGISTRER
+	avec le bouton "Session record"
+	option dans les préférences pour enregistrer les automations des pistes non armées
+	penser à unlocker les enveloppes
+	https://www.youtube.com/watch?v=xK8BCwh5skc
+	https://www.youtube.com/watch?v=Hnj17QwSlus
+
+Automations : 
+	Back to arrangement
+		rend les automations visibles et editables (points rouges)
+		coupe le son d'Arrangement => pourquoi ?
+	modifier le clip en Session désactives les automations en Arrangement sur cette track
+		=> Re-enable automation (bouton général ou par automation)
+COMMENT ENTENDRE L'ARRANGEMENT UNE FOIS RETOUCHE ? c'est trop galère de faire les ajustements de timing sur les clips

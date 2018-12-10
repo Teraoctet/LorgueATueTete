@@ -12,7 +12,7 @@
 // ID and NAME //
 /////////////////
 #ifndef SOLIST
-const int SKULL_ID = 3; // SET SKULL ID HERE: 1 to 7
+const int SKULL_ID = 4; // SET SKULL ID HERE: 1 to 7
 #else
 const int SKULL_ID = 0; // do not change
 #endif
@@ -29,7 +29,9 @@ const unsigned int outPort = 12345;
 const unsigned int udpPort = 54321;
 const unsigned int tcpPort = 55555;
 WiFiUDP Udp;
-IPAddress outIp(192, 168, 43, 52); // the last byte will be set by the EEPROM or the handshake
+IPAddress broadcastIP(192, 168, 43, 255);
+IPAddress outIp(192, 168, 43, 255); // the last byte will be set by the EEPROM or the handshake
+bool gotHandshake = false;
 
 int pingTimeInMs = 1000;
 unsigned long lastPingTime = 0;
@@ -73,11 +75,22 @@ void send_message(OSCMessage &msg)
 ////////  
 void setup(void)
 {
+  Serial.begin(115200);
+  Serial.println("---");
   
   // set up wifi
   WiFi.mode(WIFI_STA);
   WiFi.begin(ssid, password);
-  while (WiFi.status() != WL_CONNECTED)delay(5);
+  
+  Serial.print("Connecting to : ");
+  Serial.println(ssid);
+  while (WiFi.status() != WL_CONNECTED)
+  {
+    delay(500);
+    Serial.print(".");
+  }
+  Serial.println("");
+  
   Udp.begin(udpPort);
     
   // set up servo
@@ -93,13 +106,15 @@ void setup(void)
   // read target ip from EEPROM
   EEPROM.begin(512);
   outIp[3] = EEPROM.read(0);
-
-  // broadcast handshake message
+  
+  // send handshake message
   OSCMessage msg = handshake_message();
-  Udp.beginPacket("192.168.43.255", outPort);
+  Udp.beginPacket(outIp, outPort);
   msg.send(Udp);
   Udp.endPacket();
   msg.empty();
+
+  delay(1000);
 }
 
 OSCMessage handshake_message()
@@ -119,12 +134,29 @@ void loop(void)
   // send ping
   if ((unsigned long)(millis() - lastPingTime) > pingTimeInMs)
   {
-    OSCMessage pingmsg("/ping");
-    pingmsg.add(SKULL_ID);
-    pingmsg.add(SKULL_NAME.c_str());
-    pingmsg.add(WiFi.localIP().toString().c_str());
-    send_message(pingmsg);
-    lastPingTime = millis();
+    
+    if (gotHandshake)
+    {
+      OSCMessage pingmsg("/ping");
+      pingmsg.add(SKULL_ID);
+      pingmsg.add(SKULL_NAME.c_str());
+      pingmsg.add(WiFi.localIP().toString().c_str());
+      send_message(pingmsg);
+      
+      Serial.print("ping to : ");
+      Serial.println(outIp.toString());
+    } else
+    {
+      // broadcast handshake message
+      OSCMessage msg = handshake_message();
+      Udp.beginPacket(broadcastIP, outPort);
+      msg.send(Udp);
+      Udp.endPacket();
+      msg.empty();
+      
+      Serial.println("broadcast hanshake...");
+    }
+      lastPingTime = millis();
   }
 
   // route messages
@@ -149,6 +181,7 @@ void loop(void)
 
 void get_handshake(OSCMessage &msg, int addrOffset)
 {
+    Serial.println("got handhake.");
   // exchange IP addresses
   if (msg.isInt(0) && msg.isInt(1) && msg.isInt(2) && msg.isInt(3))
   { 
@@ -161,6 +194,10 @@ void get_handshake(OSCMessage &msg, int addrOffset)
     // store last byte of ip address
     EEPROM.write(0, (byte)outIp[3]);
     EEPROM.commit();
+    
+    Serial.print("target ip is now : ");
+    Serial.println(outIp.toString());
+    gotHandshake = true;
   }
 }
 
@@ -173,6 +210,7 @@ void send_config(OSCMessage &msg, int addrOffset)
 
 void set_servo(OSCMessage &msg, int addrOffset)
 {
+  Serial.println("set servo");
   #ifndef SOLIST
   if (msg.isInt(0))
   {

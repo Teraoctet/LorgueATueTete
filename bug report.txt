@@ -1,2 +1,0 @@
-4 octobre
-premiere connexion : le slider n'est pas activé par le son, pas testé avec le monitoring. Redémarrage de Max et Live et ça marche.
