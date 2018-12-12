@@ -1,8 +1,19 @@
+Session ou arrangement ?
+probleme : ca peut pas etre le meme gain pour tous les clips, il faut générer l'automation dans le clip
+=> SkullUDP ne doit pas pas monitorer de base => activer que si Monitoring ON ou record !
+=> passer le monitoring en OFF apres avoir enregistré
+Arrangement
+	10x mieux pour caler les timings, utiliser les locators pour lancer
+	problème : au moindre changement en Session, ca se désactive
+Session 
+
+
+
 
 TODO 
 OK	- spreadsheet requests
 OK	- factures
-	- setup de base
+OK	- setup de base
 OK	- audio disabled
 	- data255
 	- port TCP + TCP dans max
