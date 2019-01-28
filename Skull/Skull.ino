@@ -12,7 +12,7 @@
 // ID and NAME //
 /////////////////
 #ifndef SOLIST
-const int SKULL_ID = 5; // SET SKULL ID HERE: 1 to 7
+const int SKULL_ID = 1; // SET SKULL ID HERE: 1 to 7
 #else
 const int SKULL_ID = 0; // do not change
 #endif
@@ -31,7 +31,9 @@ const unsigned int dataPort = 255255;
 const unsigned int tcpPort = 55555;
 WiFiUDP UdpOSC;
 WiFiUDP UdpData;
-IPAddress broadcastIP(192, 168, 43, 255);
+IPAddress broadcastIP1(192, 168, 43, 255);
+IPAddress broadcastIP2(192, 168, 1, 255);
+IPAddress broadcastIP3(192, 168, 137, 255);
 IPAddress outIp(192, 168, 43, 255); // the last byte will be set by the EEPROM or the handshake
 bool connectedToWiFi = false;
 bool gotHandshake = false;
@@ -168,16 +170,24 @@ void loop(void)
       pingmsg.add(WiFi.localIP().toString().c_str());
       send_message(pingmsg);
       
-      Serial.print("ping to : ");
-      Serial.println(outIp.toString());
+      //Serial.print("ping to : ");
+      //Serial.println(outIp.toString());
     } else
     {
       // broadcast handshake message
-      UdpOSC.beginPacket(broadcastIP, outPort);
+      UdpOSC.beginPacket(broadcastIP1, outPort);
+      handshake_message().send(UdpOSC);
+      UdpOSC.endPacket();
+      UdpOSC.beginPacket(broadcastIP2, outPort);
+      handshake_message().send(UdpOSC);
+      UdpOSC.endPacket();
+      UdpOSC.beginPacket(broadcastIP3, outPort);
       handshake_message().send(UdpOSC);
       UdpOSC.endPacket();
       
-      Serial.println("broadcast handshake...");
+      Serial.println(broadcastIP1.toString());
+      Serial.println(broadcastIP2.toString());
+      Serial.println(broadcastIP3.toString());
     }
       lastPingTime = millis();
   }
