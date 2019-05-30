@@ -309,7 +309,7 @@ void loop(void)
     if (!bundleIN.hasError())
     {
       treatedPackets++;
-      if (!gotHandshake)
+      if (UdpData.remoteIP() != outIp)
         set_remote_ip(UdpOSC.remoteIP());
 
       bundleIN.route("/handshake", get_handshake);
