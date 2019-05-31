@@ -9,8 +9,8 @@
 					"min" : [ -79.0 ],
 					"max" : [ 0.0 ],
 					"osc_address" : [ "/servo/0" ],
-					"target_ip" : [ "192.168.0.19" ],
-					"target_port" : [ 12345 ],
+					"target_ip" : [ "192.168.43.143" ],
+					"target_port" : [ 54321 ],
 					"id" : [ 1 ],
 					"nickname" : [ "First" ],
 					"servo_index" : [ 0 ]
@@ -23,13 +23,13 @@
 				"data" : 				{
 					"invert" : [ 1.0 ],
 					"min" : [ -81.0 ],
-					"max" : [ 2.0 ],
-					"osc_address" : [ "/servo/0" ],
-					"target_ip" : [ "192.168.0.19" ],
-					"target_port" : [ 12345 ],
+					"max" : [ 1.0 ],
+					"osc_address" : [ "/servo/1" ],
+					"target_ip" : [ "192.168.43.143" ],
+					"target_port" : [ 54321 ],
 					"id" : [ 2 ],
 					"nickname" : [ "Second" ],
-					"servo_index" : [ 1 ]
+					"servo_index" : [ 0 ]
 				}
 
 			}
@@ -40,12 +40,12 @@
 					"invert" : [ 1.0 ],
 					"min" : [ -81.0 ],
 					"max" : [ 2.0 ],
-					"osc_address" : [ "/servo/0" ],
-					"target_ip" : [ "192.168.0.19" ],
-					"target_port" : [ 12345 ],
+					"osc_address" : [ "/servo/2" ],
+					"target_ip" : [ "192.168.43.143" ],
+					"target_port" : [ 54321 ],
 					"id" : [ 3 ],
 					"nickname" : [ "Third" ],
-					"servo_index" : [ 2 ]
+					"servo_index" : [ 0 ]
 				}
 
 			}
