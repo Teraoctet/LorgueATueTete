@@ -5,6 +5,7 @@
 #include <OSCBundle.h>
 #include "WifiUDP.h"
 #include <EEPROM.h>
+#include <JC_Button.h>
 
 #define SOLIST // COMMENT FOR NON SOLISTS
 
@@ -62,6 +63,20 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #define SERVOMIN  150 // this is the 'minimum' pulse length count (out of 4096)
 #define SERVOMAX  574 // this is the 'maximum' pulse length count (out of 4096)
 #endif
+
+/////////////
+// Buttons //
+/////////////
+// JC_Button library
+Button button1(0);
+Button button2(4);
+Button button3(13);
+bool btn1State = false;
+bool btn2State = false;
+bool btn3State = false;
+int btn1Long = 2000;
+int btn2Long = 2000;
+int btn3Long = 2000;
 
 /////////////////
 // Util functions
@@ -148,6 +163,11 @@ void setup(void)
 
   Serial.print("target ip: ");
   Serial.println(outIp.toString());
+
+  // set up buttons
+  button1.begin();
+  button2.begin();
+  button3.begin();
 }
 
 void wifi_connect()
@@ -277,6 +297,73 @@ void loop(void)
       Serial.println(error);
     }
   }
+
+  // read buttons
+  button1.read();
+  button2.read();
+  button3.read();
+
+  if (button1.wasReleased())
+  {
+    OSCMessage m("/button/1");
+    m.add(0);
+    send_message(m);
+    btn1State = false;
+  }
+  else if (button1.wasPressed())
+  {
+    OSCMessage m("/button/1");
+    m.add(1);
+    send_message(m);
+  }
+  else if (button1.pressedFor(btn1Long) && !btn1State)
+  {
+    OSCMessage m("/button/1");
+    m.add(2);
+    send_message(m);
+    btn1State = true;
+  }
+  if (button2.wasReleased())
+  {
+    OSCMessage m("/button/2");
+    m.add(0);
+    send_message(m);
+    btn2State = false;
+  }
+  else if (button2.wasPressed())
+  {
+    OSCMessage m("/button/2");
+    m.add(1);
+    send_message(m);
+  }
+  else if (button2.pressedFor(btn2Long) && !btn2State)
+  {
+    OSCMessage m("/button/2");
+    m.add(2);
+    send_message(m);
+    btn2State = true;
+  }
+
+  if (button3.wasReleased())
+  {
+    OSCMessage m("/button/3");
+    m.add(0);
+    send_message(m);
+    btn3State = false;
+  }
+  else if (button3.wasPressed())
+  {
+    OSCMessage m("/button/3");
+    m.add(1);
+    send_message(m);
+  }
+  if (button3.pressedFor(btn3Long) && !btn3State)
+  {
+    OSCMessage m("/button/3");
+    m.add(2);
+    send_message(m);
+    btn3State = true;
+  }
 }
 
 void get_handshake(OSCMessage & msg, int addrOffset)
@@ -319,7 +406,7 @@ void set_servo(OSCMessage & msg, int addrOffset)
   if (msg.match("/4", addrOffset)) index = 4;
   if (msg.match("/5", addrOffset)) index = 5;
   if (msg.match("/6", addrOffset)) index = 6;
-  
+
   if (index >= 0 && msg.isInt(0))
   {
     int servoValue = constrain(SERVO_INIT_VALUE + msg.getInt(0), 0, 180);
