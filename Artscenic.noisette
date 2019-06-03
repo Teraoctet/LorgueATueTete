@@ -1,0 +1,657 @@
+{
+  "metaData": {
+    "version": "1.6.0",
+    "versionNumber": 67072
+  },
+  "moduleManager": {
+    "items": [
+      {
+        "parameters": [
+          {
+            "value": true,
+            "controlMode": 0,
+            "controlAddress": "/logIncoming"
+          }
+        ],
+        "niceName": "OSC",
+        "type": "OSC",
+        "scripts": {
+        },
+        "params": {
+          "containers": {
+            "oscinput": {
+            },
+            "oscoutputs": {
+              "items": [
+                {
+                  "niceName": "OSC Output",
+                  "type": "BaseItem"
+                }
+              ]
+            }
+          }
+        },
+        "values": {
+          "parameters": [
+            {
+              "value": 0,
+              "controlMode": 0,
+              "controlAddress": "/_button_1",
+              "type": "Integer",
+              "niceName": "/button/1",
+              "customizable": false,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_button_1"
+            },
+            {
+              "value": 0,
+              "controlMode": 0,
+              "controlAddress": "/_button_2",
+              "type": "Integer",
+              "niceName": "/button/2",
+              "customizable": false,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_button_2"
+            },
+            {
+              "value": 0,
+              "controlMode": 0,
+              "controlAddress": "/_button_3",
+              "type": "Integer",
+              "niceName": "/button/3",
+              "customizable": false,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_button_3"
+            },
+            {
+              "controlAddress": "/_error",
+              "type": "Trigger",
+              "niceName": "/error",
+              "customizable": false,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_error"
+            }
+          ]
+        },
+        "input": {
+        },
+        "outputs": {
+          "items": [
+            {
+              "niceName": "OSC Output",
+              "type": "BaseItem"
+            }
+          ]
+        }
+      },
+      {
+        "parameters": [
+          {
+            "value": true,
+            "controlMode": 0,
+            "controlAddress": "/logOutgoing"
+          }
+        ],
+        "niceName": "LiveOSC2",
+        "type": "LiveOSC2",
+        "scripts": {
+        },
+        "params": {
+          "containers": {
+            "oscoutputs": {
+              "items": [
+                {
+                  "parameters": [
+                    {
+                      "value": 9001,
+                      "controlMode": 0,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output",
+                  "type": "BaseItem"
+                }
+              ]
+            }
+          }
+        },
+        "outputs": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": 9001,
+                  "controlMode": 0,
+                  "controlAddress": "/remotePort"
+                }
+              ],
+              "niceName": "OSC Output",
+              "type": "BaseItem"
+            }
+          ]
+        }
+      },
+      {
+        "niceName": "MIDI",
+        "type": "MIDI",
+        "scripts": {
+        },
+        "params": {
+          "parameters": [
+            {
+              "value": [
+                "",
+                "loopMIDI Port"
+              ],
+              "controlMode": 0,
+              "controlAddress": "/devices"
+            }
+          ]
+        },
+        "values": {
+        }
+      },
+      {
+        "niceName": "Signal",
+        "type": "Signal",
+        "scripts": {
+        },
+        "params": {
+          "parameters": [
+            {
+              "value": "Perlin",
+              "controlMode": 0,
+              "controlAddress": "/type"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "stateManager": {
+    "items": [
+      {
+        "parameters": [
+          {
+            "value": [
+              -111.0,
+              -162.0
+            ],
+            "controlMode": 0,
+            "controlAddress": "/viewUIPosition"
+          },
+          {
+            "value": true,
+            "controlMode": 0,
+            "controlAddress": "/active"
+          }
+        ],
+        "niceName": "State",
+        "type": "State",
+        "processors": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": true,
+                  "controlMode": 0,
+                  "controlAddress": "/enabled"
+                }
+              ],
+              "niceName": "Action",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "parameters": [
+                  {
+                    "value": true,
+                    "controlMode": 0,
+                    "controlAddress": "/isValid"
+                  },
+                  {
+                    "value": 0.0,
+                    "controlMode": 0,
+                    "controlAddress": "/progress"
+                  }
+                ],
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": true,
+                        "controlMode": 0,
+                        "controlAddress": "/isValid"
+                      },
+                      {
+                        "value": "/modules/osc/values/_button_3",
+                        "controlMode": 0,
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": "=",
+                          "controlMode": 0,
+                          "controlAddress": "/comparisonFunction"
+                        },
+                        {
+                          "value": 0,
+                          "controlMode": 0,
+                          "controlAddress": "/reference"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "BaseItem",
+                    "commandModule": "midi",
+                    "commandPath": "",
+                    "commandType": "Note On",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": 1,
+                          "controlMode": 0,
+                          "controlAddress": "/channel"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequencesOff": {
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": true,
+                  "controlMode": 0,
+                  "controlAddress": "/enabled"
+                },
+                {
+                  "value": [
+                    20.0,
+                    20.0
+                  ],
+                  "controlMode": 0,
+                  "controlAddress": "/viewUIPosition"
+                }
+              ],
+              "niceName": "Action 1",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "parameters": [
+                  {
+                    "value": true,
+                    "controlMode": 0,
+                    "controlAddress": "/isValid"
+                  },
+                  {
+                    "value": 0.0,
+                    "controlMode": 0,
+                    "controlAddress": "/progress"
+                  }
+                ],
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": true,
+                        "controlMode": 0,
+                        "controlAddress": "/isValid"
+                      },
+                      {
+                        "value": "/modules/osc/values/_button_1",
+                        "controlMode": 0,
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": "=",
+                          "controlMode": 0,
+                          "controlAddress": "/comparisonFunction"
+                        },
+                        {
+                          "value": 0,
+                          "controlMode": 0,
+                          "controlAddress": "/reference"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "BaseItem",
+                    "commandModule": "midi",
+                    "commandPath": "",
+                    "commandType": "Note On",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": 1,
+                          "controlMode": 0,
+                          "controlAddress": "/channel"
+                        },
+                        {
+                          "value": "F",
+                          "controlMode": 0,
+                          "controlAddress": "/note"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequencesOff": {
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": true,
+                  "controlMode": 0,
+                  "controlAddress": "/enabled"
+                }
+              ],
+              "niceName": "Action 3",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "parameters": [
+                  {
+                    "value": false,
+                    "controlMode": 0,
+                    "controlAddress": "/isValid"
+                  },
+                  {
+                    "value": 0.0,
+                    "controlMode": 0,
+                    "controlAddress": "/progress"
+                  }
+                ],
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": false,
+                        "controlMode": 0,
+                        "controlAddress": "/isValid"
+                      },
+                      {
+                        "value": "/modules/osc/values/_button_2",
+                        "controlMode": 0,
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": "=",
+                          "controlMode": 0,
+                          "controlAddress": "/comparisonFunction"
+                        },
+                        {
+                          "value": 2,
+                          "controlMode": 0,
+                          "controlAddress": "/reference"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "BaseItem",
+                    "commandModule": "midi",
+                    "commandPath": "",
+                    "commandType": "Note On",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": "E",
+                          "controlMode": 0,
+                          "controlAddress": "/note"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequencesOff": {
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": true,
+                  "controlMode": 0,
+                  "controlAddress": "/enabled"
+                },
+                {
+                  "value": [
+                    40.0,
+                    40.0
+                  ],
+                  "controlMode": 0,
+                  "controlAddress": "/viewUIPosition"
+                }
+              ],
+              "niceName": "Action 2",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "parameters": [
+                  {
+                    "value": false,
+                    "controlMode": 0,
+                    "controlAddress": "/isValid"
+                  },
+                  {
+                    "value": "OR",
+                    "controlMode": 0,
+                    "controlAddress": "/operator"
+                  },
+                  {
+                    "value": 0.0,
+                    "controlMode": 0,
+                    "controlAddress": "/progress"
+                  }
+                ],
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": false,
+                        "controlMode": 0,
+                        "controlAddress": "/isValid"
+                      },
+                      {
+                        "value": "/modules/osc/values/_button_1",
+                        "controlMode": 0,
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": "=",
+                          "controlMode": 0,
+                          "controlAddress": "/comparisonFunction"
+                        },
+                        {
+                          "value": 1,
+                          "controlMode": 0,
+                          "controlAddress": "/reference"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": false,
+                        "controlMode": 0,
+                        "controlAddress": "/isValid"
+                      },
+                      {
+                        "value": "/modules/osc/values/_button_2",
+                        "controlMode": 0,
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value 1",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": "=",
+                          "controlMode": 0,
+                          "controlAddress": "/comparisonFunction"
+                        },
+                        {
+                          "value": 1,
+                          "controlMode": 0,
+                          "controlAddress": "/reference"
+                        }
+                      ]
+                    }
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": false,
+                        "controlMode": 0,
+                        "controlAddress": "/isValid"
+                      },
+                      {
+                        "value": "/modules/osc/values/_button_3",
+                        "controlMode": 0,
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value 2",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": "=",
+                          "controlMode": 0,
+                          "controlAddress": "/comparisonFunction"
+                        },
+                        {
+                          "value": 1,
+                          "controlMode": 0,
+                          "controlAddress": "/reference"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "BaseItem",
+                    "commandModule": "midi",
+                    "commandPath": "",
+                    "commandType": "Note On",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": 1,
+                          "controlMode": 0,
+                          "controlAddress": "/channel"
+                        },
+                        {
+                          "value": "G",
+                          "controlMode": 0,
+                          "controlAddress": "/note"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequencesOff": {
+              }
+            },
+            {
+              "niceName": "Action 4",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "parameters": [
+                  {
+                    "value": false,
+                    "controlMode": 0,
+                    "controlAddress": "/isValid"
+                  },
+                  {
+                    "value": 0.0,
+                    "controlMode": 0,
+                    "controlAddress": "/progress"
+                  }
+                ],
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": false,
+                        "controlMode": 0,
+                        "controlAddress": "/isValid"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value"
+                  }
+                ]
+              },
+              "consequences": {
+              },
+              "consequencesOff": {
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
