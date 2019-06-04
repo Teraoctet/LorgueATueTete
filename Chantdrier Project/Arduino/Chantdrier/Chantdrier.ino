@@ -7,7 +7,7 @@
 #include <EEPROM.h>
 #include <JC_Button.h>
 
-#define SOLIST // COMMENT FOR NON SOLISTS
+//#define SOLIST // COMMENT FOR NON SOLISTS
 
 /////////////////
 // ID and NAME //
@@ -268,6 +268,11 @@ void loop(void)
     packetBuffer[n] = 0;
     //Serial.printf("UDP packet contents: %s\n", packetBuffer);
 
+#ifndef SOLIST
+    int val = atoi(packetBuffer);
+    int servoValue = constrain(SERVO_INIT_VALUE + val, 0, 180);
+    servo.write(servoValue);
+#else
     const size_t bufferSize = 5;
     int arr[bufferSize];
 
@@ -286,6 +291,7 @@ void loop(void)
     //Serial.print(index);
     //Serial.print(" - ");
     //Serial.println(servoValue);
+#endif
 
     treatedPackets++;
     if (UdpData.remoteIP() != outIp)
