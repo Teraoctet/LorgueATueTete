@@ -6,25 +6,28 @@
 				"id" : 1,
 				"name" : "default",
 				"data" : 				{
-					"osc_address" : [ "/servo/0" ],
+					"osc_address" : [ "/servo/3" ],
 					"target_ip" : [ "192.168.137.226" ],
 					"target_port" : [ 54321 ],
 					"servo_index" : [ 0 ],
 					"enveloppe_fall" : [ 0.0 ],
 					"enveloppe_gain" : [ 20.0 ],
 					"enveloppe_rise" : [ 0.0 ],
-					"enveloppe_sampling" : [ 10 ],
+					"enveloppe_sampling" : [ 30 ],
 					"invert" : [ 0.0 ],
-					"live.slider" : [ 0.0 ],
+					"live.slider" : [ 1.0 ],
+					"live.tab" : [ 0.0 ],
+					"live.tab[1]" : [ 0.0 ],
 					"live.text" : [ 0.0 ],
-					"socket_format" : [ 1 ],
-					"textedit" : [ "test.json" ],
+					"live.text[1]" : [ 0.0 ],
+					"socket_format" : [ 0 ],
+					"textedit" : [ "UDPuppet_settings.json" ],
 					"jaw_max_center" : [ 100 ],
 					"jaw_max_range" : [ 21 ],
-					"jaw_max" : [ 0 ],
+					"jaw_max" : [ -2 ],
 					"jaw_min_center" : [ -20 ],
 					"jaw_min_range" : [ 21 ],
-					"jaw_min" : [ 0 ]
+					"jaw_min" : [ 1 ]
 				}
 
 			}
