@@ -4,30 +4,50 @@
 		"slots" : 		{
 			"1" : 			{
 				"id" : 1,
-				"name" : "default",
+				"name" : "One",
 				"data" : 				{
-					"osc_address" : [ "/servo/3" ],
-					"target_ip" : [ "192.168.137.226" ],
+					"osc_address" : [ "/servo/0" ],
+					"target_ip" : [ "192.168.43.143" ],
 					"target_port" : [ 54321 ],
-					"servo_index" : [ 0 ],
-					"enveloppe_fall" : [ 0.0 ],
-					"enveloppe_gain" : [ 20.0 ],
-					"enveloppe_rise" : [ 0.0 ],
-					"enveloppe_sampling" : [ 30 ],
-					"invert" : [ 0.0 ],
-					"live.slider" : [ 1.0 ],
-					"live.tab" : [ 0.0 ],
-					"live.tab[1]" : [ 0.0 ],
-					"live.text" : [ 0.0 ],
-					"live.text[1]" : [ 0.0 ],
-					"socket_format" : [ 0 ],
-					"textedit" : [ "UDPuppet_settings.json" ],
+					"servo_index" : [ 0.0 ],
 					"jaw_max_center" : [ 100 ],
 					"jaw_max_range" : [ 21 ],
-					"jaw_max" : [ -2 ],
+					"jaw_max" : [ -5 ],
 					"jaw_min_center" : [ -20 ],
 					"jaw_min_range" : [ 21 ],
-					"jaw_min" : [ 1 ]
+					"jaw_min" : [ -6 ],
+					"enveloppe_gain" : [ 20.0 ],
+					"enveloppe_rise" : [ 0.0 ],
+					"enveloppe_fall" : [ 0.0 ],
+					"enveloppe_sampling" : [ 10 ],
+					"invert" : [ 0.0 ],
+					"socket_format" : [ 1.0 ],
+					"puppet_name" : [ "Jack" ]
+				}
+
+			}
+,
+			"2" : 			{
+				"id" : 2,
+				"name" : "Two",
+				"data" : 				{
+					"osc_address" : [ "/servo/1" ],
+					"target_ip" : [ "192.168.43.2" ],
+					"target_port" : [ 54321 ],
+					"servo_index" : [ 1.0 ],
+					"jaw_max_center" : [ 100 ],
+					"jaw_max_range" : [ 21 ],
+					"jaw_max" : [ 7 ],
+					"jaw_min_center" : [ -20 ],
+					"jaw_min_range" : [ 21 ],
+					"jaw_min" : [ 7 ],
+					"enveloppe_gain" : [ 20.0 ],
+					"enveloppe_rise" : [ 0.0 ],
+					"enveloppe_fall" : [ 0.0 ],
+					"enveloppe_sampling" : [ 10 ],
+					"invert" : [ 1.0 ],
+					"socket_format" : [ 0.0 ],
+					"puppet_name" : [ "Jack2" ]
 				}
 
 			}
