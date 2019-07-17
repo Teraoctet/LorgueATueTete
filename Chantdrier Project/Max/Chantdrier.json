@@ -1,6 +1,6 @@
 {
 	"pattrstorage" : 	{
-		"name" : "Chantdrier",
+		"name" : "UDPuppet",
 		"slots" : 		{
 			"1" : 			{
 				"id" : 1,
@@ -98,6 +98,31 @@
 					"invert" : [ 1.0 ],
 					"socket_format" : [ 1.0 ],
 					"puppet_name" : [ "Jack" ]
+				}
+
+			}
+,
+			"5" : 			{
+				"id" : 5,
+				"name" : "Mr President",
+				"data" : 				{
+					"osc_address" : [ "/servo/2" ],
+					"target_ip" : [ "127.0.0.1" ],
+					"target_port" : [ 54321 ],
+					"servo_index" : [ 0.0 ],
+					"jaw_max_center" : [ 10 ],
+					"jaw_max_range" : [ 21 ],
+					"jaw_max" : [ 0 ],
+					"jaw_min_center" : [ -50 ],
+					"jaw_min_range" : [ 21 ],
+					"jaw_min" : [ 1 ],
+					"enveloppe_gain" : [ 20.0 ],
+					"enveloppe_rise" : [ 0.0 ],
+					"enveloppe_fall" : [ 0.0 ],
+					"enveloppe_sampling" : [ 30 ],
+					"invert" : [ 0.0 ],
+					"socket_format" : [ 1.0 ],
+					"puppet_name" : [ "President" ]
 				}
 
 			}
