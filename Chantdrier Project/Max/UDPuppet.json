@@ -6,23 +6,23 @@
 				"id" : 1,
 				"name" : "One",
 				"data" : 				{
-					"osc_address" : [ "/servo/1" ],
-					"target_ip" : [ "192.168.137.166" ],
+					"osc_address" : [ "/servo/0" ],
+					"target_ip" : [ "192.168.0.1" ],
 					"target_port" : [ 54321 ],
 					"servo_index" : [ 0.0 ],
-					"jaw_max_center" : [ 0 ],
+					"jaw_max_center" : [ 100 ],
 					"jaw_max_range" : [ 21 ],
-					"jaw_max" : [ 0 ],
-					"jaw_min_center" : [ -70 ],
+					"jaw_max" : [ -7 ],
+					"jaw_min_center" : [ -20 ],
 					"jaw_min_range" : [ 21 ],
-					"jaw_min" : [ -10 ],
+					"jaw_min" : [ -5 ],
 					"enveloppe_gain" : [ 20.0 ],
 					"enveloppe_rise" : [ 0.0 ],
 					"enveloppe_fall" : [ 0.0 ],
 					"enveloppe_sampling" : [ 30 ],
 					"invert" : [ 0.0 ],
 					"socket_format" : [ 0.0 ],
-					"puppet_name" : [ "Sissi1" ]
+					"puppet_name" : [ "One" ]
 				}
 
 			}
@@ -31,23 +31,23 @@
 				"id" : 2,
 				"name" : "Two",
 				"data" : 				{
-					"osc_address" : [ "/servo/1" ],
-					"target_ip" : [ "192.168.137.166" ],
+					"osc_address" : [ "/servo/0" ],
+					"target_ip" : [ "192.168.0.2" ],
 					"target_port" : [ 54321 ],
-					"servo_index" : [ 0.0 ],
-					"jaw_max_center" : [ 50 ],
+					"servo_index" : [ 2.0 ],
+					"jaw_max_center" : [ 100 ],
 					"jaw_max_range" : [ 21 ],
-					"jaw_max" : [ 10 ],
-					"jaw_min_center" : [ 0 ],
+					"jaw_max" : [ 7 ],
+					"jaw_min_center" : [ -20 ],
 					"jaw_min_range" : [ 21 ],
-					"jaw_min" : [ 10 ],
+					"jaw_min" : [ 5 ],
 					"enveloppe_gain" : [ 20.0 ],
 					"enveloppe_rise" : [ 0.0 ],
 					"enveloppe_fall" : [ 0.0 ],
 					"enveloppe_sampling" : [ 30 ],
 					"invert" : [ 1.0 ],
 					"socket_format" : [ 0.0 ],
-					"puppet_name" : [ "Sissi2" ]
+					"puppet_name" : [ "Two" ]
 				}
 
 			}
