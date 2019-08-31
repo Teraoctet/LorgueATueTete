@@ -16,10 +16,10 @@
 #ifndef SOLIST
 const int SKULL_ID = 1; // SET SKULL ID HERE: 1 to 7
 #else
-const int SKULL_ID = 0; // do not change
+const int SKULL_ID = 5; // do not change
 #endif
 
-String SKULL_NAMES[6] = { "Jack", "Pat", "Ninon", "Jerry", "Sissi", "Hubert"};
+String SKULL_NAMES[6] = { "Jack", "Pat", "Ninon", "Jerry", "Sissi", "Chantdrier"};
 const String SKULL_NAME = SKULL_NAMES[SKULL_ID];
 
 const String FIRMWARE_VERSION = "v1.0";
@@ -127,10 +127,11 @@ void setup(void)
 
   // read target ip from EEPROM
   EEPROM.begin(512);
+  /*
   outIp[0] = EEPROM.read(0);
   outIp[1] = EEPROM.read(1);
   outIp[2] = EEPROM.read(2);
-  outIp[3] = EEPROM.read(3);
+  outIp[3] = EEPROM.read(3);*/
 
   Serial.print("target ip: ");
   Serial.println(outIp.toString());
@@ -188,6 +189,7 @@ void WiFiEvent(WiFiEvent_t event) {
 
 void set_remote_ip(const IPAddress& ip)
 {
+  Serial.println("set");
   // set remote IP
   outIp = IPAddress(ip);
   Serial.println(ip.toString());
