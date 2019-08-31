@@ -4,7 +4,7 @@
 		"slots" : 		{
 			"1" : 			{
 				"id" : 1,
-				"name" : "One",
+				"name" : "min",
 				"data" : 				{
 					"osc_address" : [ "/servo/0" ],
 					"target_ip" : [ 192 ],
@@ -12,10 +12,10 @@
 					"servo_index" : [ 0.0 ],
 					"jaw_max_center" : [ 100 ],
 					"jaw_max_range" : [ 21 ],
-					"jaw_max" : [ -7 ],
+					"jaw_max" : [ -10 ],
 					"jaw_min_center" : [ -20 ],
 					"jaw_min_range" : [ 21 ],
-					"jaw_min" : [ -5 ],
+					"jaw_min" : [ -10 ],
 					"enveloppe_gain" : [ 20.0 ],
 					"enveloppe_rise" : [ 0.0 ],
 					"enveloppe_fall" : [ 0.0 ],
@@ -29,7 +29,7 @@
 ,
 			"2" : 			{
 				"id" : 2,
-				"name" : "Two",
+				"name" : "max",
 				"data" : 				{
 					"osc_address" : [ "/servo/0" ],
 					"target_ip" : [ 192 ],
@@ -37,42 +37,17 @@
 					"servo_index" : [ 0.0 ],
 					"jaw_max_center" : [ 100 ],
 					"jaw_max_range" : [ 21 ],
-					"jaw_max" : [ 0 ],
+					"jaw_max" : [ 10 ],
 					"jaw_min_center" : [ -20 ],
 					"jaw_min_range" : [ 21 ],
-					"jaw_min" : [ 0 ],
+					"jaw_min" : [ 10 ],
 					"enveloppe_gain" : [ 20.0 ],
 					"enveloppe_rise" : [ 0.0 ],
 					"enveloppe_fall" : [ 0.0 ],
 					"enveloppe_sampling" : [ 30 ],
-					"invert" : [ 0.0 ],
+					"invert" : [ 1.0 ],
 					"socket_format" : [ 0.0 ],
-					"puppet_name" : [ "J2" ]
-				}
-
-			}
-,
-			"3" : 			{
-				"id" : 3,
-				"name" : "Three",
-				"data" : 				{
-					"osc_address" : [ "/servo/0" ],
-					"target_ip" : [ 192 ],
-					"target_port" : [ 54321 ],
-					"servo_index" : [ 0.0 ],
-					"jaw_max_center" : [ 100 ],
-					"jaw_max_range" : [ 21 ],
-					"jaw_max" : [ 7 ],
-					"jaw_min_center" : [ -20 ],
-					"jaw_min_range" : [ 21 ],
-					"jaw_min" : [ 8 ],
-					"enveloppe_gain" : [ 20.0 ],
-					"enveloppe_rise" : [ 0.0 ],
-					"enveloppe_fall" : [ 0.0 ],
-					"enveloppe_sampling" : [ 30 ],
-					"invert" : [ 0.0 ],
-					"socket_format" : [ 0.0 ],
-					"puppet_name" : [ "J3" ]
+					"puppet_name" : [ "JACK" ]
 				}
 
 			}

@@ -7,7 +7,7 @@
 #include <EEPROM.h>
 #include <JC_Button.h>
 
-//#define SOLIST // COMMENT FOR NON SOLISTS
+#define SOLIST // COMMENT FOR NON SOLISTS
 
 /////////////////
 // ID and NAME //
@@ -15,10 +15,10 @@
 #ifndef SOLIST
 const int SKULL_ID = 1; // SET SKULL ID HERE: 1 to 7
 #else
-const int SKULL_ID = 0; // do not change
+const int SKULL_ID = 6; // do not change
 #endif
 
-String SKULL_NAMES[6] = { "Jack", "Pat", "Ninon", "Jerry", "Sissi", "Hubert"};
+String SKULL_NAMES[7] = { "Jack", "Pat", "Ninon", "Jerry", "Sissi", "Hubert", "Chantdrier"};
 const String SKULL_NAME = SKULL_NAMES[SKULL_ID];
 
 const String FIRMWARE_VERSION = "v1.0";
