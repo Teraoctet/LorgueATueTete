@@ -1,0 +1,59 @@
+{
+	"pattrstorage" : 	{
+		"name" : "u093006030",
+		"slots" : 		{
+			"1" : 			{
+				"id" : 1,
+				"name" : "min",
+				"data" : 				{
+					"osc_address" : [ "/servo/0" ],
+					"target_ip" : [ 192 ],
+					"target_port" : [ 54321 ],
+					"servo_index" : [ 0.0 ],
+					"jaw_max_center" : [ 100 ],
+					"jaw_max_range" : [ 21 ],
+					"jaw_max" : [ -10 ],
+					"jaw_min_center" : [ -20 ],
+					"jaw_min_range" : [ 21 ],
+					"jaw_min" : [ -10 ],
+					"enveloppe_gain" : [ 20.0 ],
+					"enveloppe_rise" : [ 0.0 ],
+					"enveloppe_fall" : [ 0.0 ],
+					"enveloppe_sampling" : [ 30 ],
+					"invert" : [ 0.0 ],
+					"socket_format" : [ 0.0 ],
+					"puppet_name" : [ "J" ]
+				}
+
+			}
+,
+			"2" : 			{
+				"id" : 2,
+				"name" : "max",
+				"data" : 				{
+					"osc_address" : [ "/servo/0" ],
+					"target_ip" : [ 192 ],
+					"target_port" : [ 54321 ],
+					"servo_index" : [ 0.0 ],
+					"jaw_max_center" : [ 100 ],
+					"jaw_max_range" : [ 21 ],
+					"jaw_max" : [ 10 ],
+					"jaw_min_center" : [ -20 ],
+					"jaw_min_range" : [ 21 ],
+					"jaw_min" : [ 10 ],
+					"enveloppe_gain" : [ 20.0 ],
+					"enveloppe_rise" : [ 0.0 ],
+					"enveloppe_fall" : [ 0.0 ],
+					"enveloppe_sampling" : [ 30 ],
+					"invert" : [ 1.0 ],
+					"socket_format" : [ 0.0 ],
+					"puppet_name" : [ "JACK" ]
+				}
+
+			}
+
+		}
+
+	}
+
+}

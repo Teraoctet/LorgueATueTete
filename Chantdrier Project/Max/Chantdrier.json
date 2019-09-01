@@ -1,0 +1,134 @@
+{
+	"pattrstorage" : 	{
+		"name" : "UDPuppet",
+		"slots" : 		{
+			"1" : 			{
+				"id" : 1,
+				"name" : "Chantdrier 1",
+				"data" : 				{
+					"osc_address" : [ "/servo/0" ],
+					"target_ip" : [ "192.168.43.143" ],
+					"target_port" : [ 54321 ],
+					"servo_index" : [ 0.0 ],
+					"jaw_max_center" : [ 0 ],
+					"jaw_max_range" : [ 21 ],
+					"jaw_max" : [ 0 ],
+					"jaw_min_center" : [ -50 ],
+					"jaw_min_range" : [ 21 ],
+					"jaw_min" : [ -5 ],
+					"enveloppe_gain" : [ 20.0 ],
+					"enveloppe_rise" : [ 0.0 ],
+					"enveloppe_fall" : [ 0.0 ],
+					"enveloppe_sampling" : [ 30 ],
+					"invert" : [ 1.0 ],
+					"socket_format" : [ 1.0 ],
+					"puppet_name" : [ "Jack" ]
+				}
+
+			}
+,
+			"2" : 			{
+				"id" : 2,
+				"name" : "Chantdrier 2",
+				"data" : 				{
+					"osc_address" : [ "/servo/1" ],
+					"target_ip" : [ "192.168.43.143" ],
+					"target_port" : [ 54321 ],
+					"servo_index" : [ 0.0 ],
+					"jaw_max_center" : [ -10 ],
+					"jaw_max_range" : [ 21 ],
+					"jaw_max" : [ -1 ],
+					"jaw_min_center" : [ -50 ],
+					"jaw_min_range" : [ 21 ],
+					"jaw_min" : [ -2 ],
+					"enveloppe_gain" : [ 20.0 ],
+					"enveloppe_rise" : [ 0.0 ],
+					"enveloppe_fall" : [ 0.0 ],
+					"enveloppe_sampling" : [ 30 ],
+					"invert" : [ 1.0 ],
+					"socket_format" : [ 1.0 ],
+					"puppet_name" : [ "Jack" ]
+				}
+
+			}
+,
+			"3" : 			{
+				"id" : 3,
+				"name" : "Chantdrier 3",
+				"data" : 				{
+					"osc_address" : [ "/servo/2" ],
+					"target_ip" : [ "192.168.43.143" ],
+					"target_port" : [ 54321 ],
+					"servo_index" : [ 0.0 ],
+					"jaw_max_center" : [ 10 ],
+					"jaw_max_range" : [ 21 ],
+					"jaw_max" : [ 8 ],
+					"jaw_min_center" : [ -50 ],
+					"jaw_min_range" : [ 21 ],
+					"jaw_min" : [ -10 ],
+					"enveloppe_gain" : [ 20.0 ],
+					"enveloppe_rise" : [ 0.0 ],
+					"enveloppe_fall" : [ 0.0 ],
+					"enveloppe_sampling" : [ 30 ],
+					"invert" : [ 1.0 ],
+					"socket_format" : [ 1.0 ],
+					"puppet_name" : [ "Jack" ]
+				}
+
+			}
+,
+			"4" : 			{
+				"id" : 4,
+				"name" : "Chantdrier 4",
+				"data" : 				{
+					"osc_address" : [ "/servo/3" ],
+					"target_ip" : [ "192.168.43.143" ],
+					"target_port" : [ 54321 ],
+					"servo_index" : [ 0.0 ],
+					"jaw_max_center" : [ 10 ],
+					"jaw_max_range" : [ 21 ],
+					"jaw_max" : [ 5 ],
+					"jaw_min_center" : [ -40 ],
+					"jaw_min_range" : [ 21 ],
+					"jaw_min" : [ 0 ],
+					"enveloppe_gain" : [ 20.0 ],
+					"enveloppe_rise" : [ 0.0 ],
+					"enveloppe_fall" : [ 0.0 ],
+					"enveloppe_sampling" : [ 30 ],
+					"invert" : [ 1.0 ],
+					"socket_format" : [ 1.0 ],
+					"puppet_name" : [ "Jack" ]
+				}
+
+			}
+,
+			"5" : 			{
+				"id" : 5,
+				"name" : "Mr President",
+				"data" : 				{
+					"osc_address" : [ "/servo/2" ],
+					"target_ip" : [ "127.0.0.1" ],
+					"target_port" : [ 54321 ],
+					"servo_index" : [ 0.0 ],
+					"jaw_max_center" : [ 10 ],
+					"jaw_max_range" : [ 21 ],
+					"jaw_max" : [ 0 ],
+					"jaw_min_center" : [ -50 ],
+					"jaw_min_range" : [ 21 ],
+					"jaw_min" : [ 1 ],
+					"enveloppe_gain" : [ 20.0 ],
+					"enveloppe_rise" : [ 0.0 ],
+					"enveloppe_fall" : [ 0.0 ],
+					"enveloppe_sampling" : [ 30 ],
+					"invert" : [ 0.0 ],
+					"socket_format" : [ 1.0 ],
+					"puppet_name" : [ "President" ]
+				}
+
+			}
+
+		}
+
+	}
+
+}
