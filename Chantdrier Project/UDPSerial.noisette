@@ -1,0 +1,76 @@
+{
+  "metaData": {
+    "version": "1.6.4",
+    "versionNumber": 67076
+  },
+  "moduleManager": {
+    "items": [
+      {
+        "niceName": "Serial",
+        "type": "Serial",
+        "scripts": {
+        },
+        "params": {
+          "parameters": [
+            {
+              "value": "USB Serial Port (COM18)",
+              "controlAddress": "/port"
+            }
+          ]
+        },
+        "values": {
+        },
+        "portID": "USB Serial Port (COM18)"
+      },
+      {
+        "niceName": "UDP",
+        "type": "UDP",
+        "scripts": {
+        },
+        "params": {
+          "containers": {
+            "input": {
+              "parameters": [
+                {
+                  "value": true,
+                  "controlAddress": "/isBound"
+                }
+              ]
+            },
+            "output": {
+              "parameters": [
+                {
+                  "value": true,
+                  "controlAddress": "/isConnected"
+                }
+              ]
+            }
+          }
+        },
+        "values": {
+        }
+      }
+    ]
+  },
+  "stateManager": {
+    "items": [
+      {
+        "parameters": [
+          {
+            "value": [
+              -262.0,
+              -74.0
+            ],
+            "controlAddress": "/viewUIPosition"
+          },
+          {
+            "value": true,
+            "controlAddress": "/active"
+          }
+        ],
+        "niceName": "State",
+        "type": "State"
+      }
+    ]
+  }
+}

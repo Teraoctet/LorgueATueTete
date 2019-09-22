@@ -54,6 +54,7 @@ void setup() {
 void loop() {
   if ((unsigned long)(millis() - lastPingTime) > pingTimeInMs)
   {
+    Serial.print("id ");
     Serial.println(SKULL_ID);
     lastPingTime = millis();
   }
