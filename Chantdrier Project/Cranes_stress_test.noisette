@@ -1,0 +1,1359 @@
+{
+  "metaData": {
+    "version": "1.6.5b2",
+    "versionNumber": 67077
+  },
+  "moduleManager": {
+    "items": [
+      {
+        "parameters": [
+          {
+            "value": true,
+            "controlAddress": "/logOutgoing"
+          }
+        ],
+        "niceName": "Pat",
+        "type": "OSC",
+        "scripts": {
+        },
+        "params": {
+          "containers": {
+            "oscInput": {
+            },
+            "oscOutputs": {
+              "items": [
+                {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/local"
+                    },
+                    {
+                      "value": "192.168.0.101",
+                      "controlAddress": "/remoteHost"
+                    },
+                    {
+                      "value": 54321,
+                      "hexMode": false,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output",
+                  "type": "BaseItem"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/local"
+                    },
+                    {
+                      "value": "192.168.43.253",
+                      "controlAddress": "/remoteHost"
+                    },
+                    {
+                      "value": 54321,
+                      "hexMode": false,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output 1",
+                  "type": "BaseItem"
+                }
+              ]
+            }
+          }
+        },
+        "templates": {
+          "editorIsCollapsed": true
+        },
+        "values": {
+        },
+        "input": {
+        },
+        "outputs": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": false,
+                  "controlAddress": "/local"
+                },
+                {
+                  "value": "192.168.0.101",
+                  "controlAddress": "/remoteHost"
+                },
+                {
+                  "value": 54321,
+                  "hexMode": false,
+                  "controlAddress": "/remotePort"
+                }
+              ],
+              "niceName": "OSC Output",
+              "type": "BaseItem"
+            },
+            {
+              "parameters": [
+                {
+                  "value": false,
+                  "controlAddress": "/local"
+                },
+                {
+                  "value": "192.168.43.253",
+                  "controlAddress": "/remoteHost"
+                },
+                {
+                  "value": 54321,
+                  "hexMode": false,
+                  "controlAddress": "/remotePort"
+                }
+              ],
+              "niceName": "OSC Output 1",
+              "type": "BaseItem"
+            }
+          ]
+        }
+      },
+      {
+        "parameters": [
+          {
+            "value": [
+              20.0,
+              20.0
+            ],
+            "controlAddress": "/viewUIPosition"
+          }
+        ],
+        "niceName": "Ninon",
+        "type": "OSC",
+        "scripts": {
+        },
+        "params": {
+          "containers": {
+            "oscInput": {
+            },
+            "oscOutputs": {
+              "items": [
+                {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/local"
+                    },
+                    {
+                      "value": "192.168.0.103",
+                      "controlAddress": "/remoteHost"
+                    },
+                    {
+                      "value": 54321,
+                      "hexMode": false,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output",
+                  "type": "BaseItem"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": [
+                        20.0,
+                        20.0
+                      ],
+                      "controlAddress": "/viewUIPosition"
+                    },
+                    {
+                      "value": false,
+                      "controlAddress": "/local"
+                    },
+                    {
+                      "value": "192.168.43.116",
+                      "controlAddress": "/remoteHost"
+                    },
+                    {
+                      "value": 54321,
+                      "hexMode": false,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output 1",
+                  "type": "BaseItem"
+                }
+              ]
+            }
+          }
+        },
+        "values": {
+        },
+        "input": {
+        },
+        "outputs": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": false,
+                  "controlAddress": "/local"
+                },
+                {
+                  "value": "192.168.0.103",
+                  "controlAddress": "/remoteHost"
+                },
+                {
+                  "value": 54321,
+                  "hexMode": false,
+                  "controlAddress": "/remotePort"
+                }
+              ],
+              "niceName": "OSC Output",
+              "type": "BaseItem"
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    20.0,
+                    20.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": false,
+                  "controlAddress": "/local"
+                },
+                {
+                  "value": "192.168.43.116",
+                  "controlAddress": "/remoteHost"
+                },
+                {
+                  "value": 54321,
+                  "hexMode": false,
+                  "controlAddress": "/remotePort"
+                }
+              ],
+              "niceName": "OSC Output 1",
+              "type": "BaseItem"
+            }
+          ]
+        }
+      },
+      {
+        "parameters": [
+          {
+            "value": [
+              40.0,
+              40.0
+            ],
+            "controlAddress": "/viewUIPosition"
+          }
+        ],
+        "niceName": "Jerry",
+        "type": "OSC",
+        "scripts": {
+        },
+        "params": {
+          "containers": {
+            "oscInput": {
+            },
+            "oscOutputs": {
+              "items": [
+                {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/local"
+                    },
+                    {
+                      "value": "192.168.0.100",
+                      "controlAddress": "/remoteHost"
+                    },
+                    {
+                      "value": 54321,
+                      "hexMode": false,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output",
+                  "type": "BaseItem"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": [
+                        20.0,
+                        20.0
+                      ],
+                      "controlAddress": "/viewUIPosition"
+                    },
+                    {
+                      "value": false,
+                      "controlAddress": "/local"
+                    },
+                    {
+                      "value": "192.168.43.81",
+                      "controlAddress": "/remoteHost"
+                    },
+                    {
+                      "value": 54321,
+                      "hexMode": false,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output 1",
+                  "type": "BaseItem"
+                }
+              ]
+            }
+          }
+        },
+        "values": {
+        },
+        "input": {
+        },
+        "outputs": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": false,
+                  "controlAddress": "/local"
+                },
+                {
+                  "value": "192.168.0.100",
+                  "controlAddress": "/remoteHost"
+                },
+                {
+                  "value": 54321,
+                  "hexMode": false,
+                  "controlAddress": "/remotePort"
+                }
+              ],
+              "niceName": "OSC Output",
+              "type": "BaseItem"
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    20.0,
+                    20.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": false,
+                  "controlAddress": "/local"
+                },
+                {
+                  "value": "192.168.43.81",
+                  "controlAddress": "/remoteHost"
+                },
+                {
+                  "value": 54321,
+                  "hexMode": false,
+                  "controlAddress": "/remotePort"
+                }
+              ],
+              "niceName": "OSC Output 1",
+              "type": "BaseItem"
+            }
+          ]
+        }
+      },
+      {
+        "parameters": [
+          {
+            "value": [
+              60.0,
+              60.0
+            ],
+            "controlAddress": "/viewUIPosition"
+          }
+        ],
+        "niceName": "Sissi",
+        "type": "OSC",
+        "scripts": {
+        },
+        "params": {
+          "containers": {
+            "oscInput": {
+            },
+            "oscOutputs": {
+              "items": [
+                {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/local"
+                    },
+                    {
+                      "value": "192.168.0.102",
+                      "controlAddress": "/remoteHost"
+                    },
+                    {
+                      "value": 54321,
+                      "hexMode": false,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output",
+                  "type": "BaseItem"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": [
+                        20.0,
+                        20.0
+                      ],
+                      "controlAddress": "/viewUIPosition"
+                    },
+                    {
+                      "value": false,
+                      "controlAddress": "/local"
+                    },
+                    {
+                      "value": "192.168.43.42",
+                      "controlAddress": "/remoteHost"
+                    },
+                    {
+                      "value": 54321,
+                      "hexMode": false,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output 1",
+                  "type": "BaseItem"
+                }
+              ]
+            }
+          }
+        },
+        "values": {
+        },
+        "input": {
+        },
+        "outputs": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": false,
+                  "controlAddress": "/local"
+                },
+                {
+                  "value": "192.168.0.102",
+                  "controlAddress": "/remoteHost"
+                },
+                {
+                  "value": 54321,
+                  "hexMode": false,
+                  "controlAddress": "/remotePort"
+                }
+              ],
+              "niceName": "OSC Output",
+              "type": "BaseItem"
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    20.0,
+                    20.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": false,
+                  "controlAddress": "/local"
+                },
+                {
+                  "value": "192.168.43.42",
+                  "controlAddress": "/remoteHost"
+                },
+                {
+                  "value": 54321,
+                  "hexMode": false,
+                  "controlAddress": "/remotePort"
+                }
+              ],
+              "niceName": "OSC Output 1",
+              "type": "BaseItem"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "sequenceManager": {
+    "items": [
+      {
+        "parameters": [
+          {
+            "value": 5.0,
+            "controlAddress": "/listSize"
+          },
+          {
+            "value": 1.0,
+            "controlAddress": "/totalTime"
+          },
+          {
+            "value": 30,
+            "hexMode": false,
+            "controlAddress": "/fps"
+          },
+          {
+            "value": true,
+            "controlAddress": "/loop"
+          },
+          {
+            "value": 0.0,
+            "controlAddress": "/viewStartTime"
+          },
+          {
+            "value": 1.0,
+            "controlAddress": "/viewEndTime"
+          }
+        ],
+        "niceName": "Sequence",
+        "type": "BaseItem",
+        "layerManager": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": 88.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": 120,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1.0
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.5938930511474609,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Mapping",
+              "type": "Mapping",
+              "mapping": {
+                "parameters": [
+                  {
+                    "value": -23.63694381713867,
+                    "controlAddress": "/outValue"
+                  }
+                ],
+                "niceName": "Mapping",
+                "type": "Mapping",
+                "input": {
+                },
+                "filters": {
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": -23.63694381713867,
+                          "controlAddress": "/out"
+                        }
+                      ],
+                      "niceName": "Remap",
+                      "type": "Remap",
+                      "filterParams": {
+                        "parameters": [
+                          {
+                            "value": [
+                              0.0,
+                              1.0
+                            ],
+                            "controlAddress": "/inputMin_Max"
+                          },
+                          {
+                            "value": [
+                              0.0,
+                              -39.79999923706055
+                            ],
+                            "controlAddress": "/targetMin_Max"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "outputs": {
+                  "items": [
+                    {
+                      "niceName": "MappingOutput",
+                      "type": "BaseItem",
+                      "commandModule": "pat",
+                      "commandPath": "",
+                      "commandType": "Custom Message",
+                      "command": {
+                        "parameters": [
+                          {
+                            "value": "/servo",
+                            "controlAddress": "/address"
+                          }
+                        ],
+                        "arguments": {
+                        },
+                        "argManager": {
+                          "items": [
+                            {
+                              "parameters": [
+                                {
+                                  "value": true,
+                                  "controlAddress": "/useForMapping"
+                                }
+                              ],
+                              "niceName": "#1",
+                              "type": "Integer",
+                              "param": {
+                                "value": -23,
+                                "hexMode": false,
+                                "controlAddress": "/sequences/sequence/layers/mapping/mapping/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "automation0": {
+                "parameters": [
+                  {
+                    "value": 1.0,
+                    "controlAddress": "/length"
+                  },
+                  {
+                    "value": 0.2969465255737305,
+                    "controlAddress": "/position"
+                  },
+                  {
+                    "value": 0.5938930511474609,
+                    "controlAddress": "/value"
+                  }
+                ],
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key 1",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": 0.5,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 1.0,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": 1.0,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 0.01680672168731689,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key 2",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  }
+                ]
+              },
+              "recorder": {
+                "parameters": [
+                  {
+                    "value": false,
+                    "controlAddress": "/isRecording"
+                  }
+                ],
+                "editorIsCollapsed": true
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": 88.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": [
+                    20.0,
+                    20.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 120,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1.0
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.5916603803634644,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Mapping 1",
+              "type": "Mapping",
+              "mapping": {
+                "parameters": [
+                  {
+                    "value": 0.0,
+                    "controlAddress": "/outValue"
+                  }
+                ],
+                "niceName": "Mapping",
+                "type": "Mapping",
+                "input": {
+                },
+                "filters": {
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/out"
+                        }
+                      ],
+                      "niceName": "Remap",
+                      "type": "Remap",
+                      "filterParams": {
+                        "parameters": [
+                          {
+                            "value": [
+                              0.0,
+                              1.0
+                            ],
+                            "controlAddress": "/inputMin_Max"
+                          },
+                          {
+                            "value": [
+                              0.0,
+                              -39.79999923706055
+                            ],
+                            "controlAddress": "/targetMin_Max"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "outputs": {
+                  "items": [
+                    {
+                      "niceName": "MappingOutput",
+                      "type": "BaseItem",
+                      "commandModule": "ninon",
+                      "commandPath": "",
+                      "commandType": "Custom Message",
+                      "command": {
+                        "parameters": [
+                          {
+                            "value": "/servo",
+                            "controlAddress": "/address"
+                          }
+                        ],
+                        "arguments": {
+                        },
+                        "argManager": {
+                          "items": [
+                            {
+                              "parameters": [
+                                {
+                                  "value": true,
+                                  "controlAddress": "/useForMapping"
+                                }
+                              ],
+                              "niceName": "#1",
+                              "type": "Integer",
+                              "param": {
+                                "value": 0,
+                                "hexMode": false,
+                                "controlAddress": "/sequences/sequence/layers/mapping1/mapping/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "automation0": {
+                "parameters": [
+                  {
+                    "value": 1.0,
+                    "controlAddress": "/length"
+                  },
+                  {
+                    "value": 0.2969465255737305,
+                    "controlAddress": "/position"
+                  },
+                  {
+                    "value": 0.5916603803634644,
+                    "controlAddress": "/value"
+                  }
+                ],
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key 1",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": 0.501886785030365,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 1.0,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": 1.0,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 0.01680672168731689,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key 2",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  }
+                ]
+              },
+              "recorder": {
+                "parameters": [
+                  {
+                    "value": false,
+                    "controlAddress": "/isRecording"
+                  }
+                ],
+                "editorIsCollapsed": true
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": 88.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": [
+                    40.0,
+                    40.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 120,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1.0
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.5894444584846497,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Mapping 2",
+              "type": "Mapping",
+              "mapping": {
+                "parameters": [
+                  {
+                    "value": 0.0,
+                    "controlAddress": "/outValue"
+                  }
+                ],
+                "niceName": "Mapping",
+                "type": "Mapping",
+                "input": {
+                },
+                "filters": {
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": 0.0,
+                          "controlAddress": "/out"
+                        }
+                      ],
+                      "niceName": "Remap",
+                      "type": "Remap",
+                      "filterParams": {
+                        "parameters": [
+                          {
+                            "value": [
+                              0.0,
+                              1.0
+                            ],
+                            "controlAddress": "/inputMin_Max"
+                          },
+                          {
+                            "value": [
+                              0.0,
+                              -40.09999847412109
+                            ],
+                            "controlAddress": "/targetMin_Max"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "outputs": {
+                  "items": [
+                    {
+                      "niceName": "MappingOutput",
+                      "type": "BaseItem",
+                      "commandModule": "jerry",
+                      "commandPath": "",
+                      "commandType": "Custom Message",
+                      "command": {
+                        "parameters": [
+                          {
+                            "value": "/servo",
+                            "controlAddress": "/address"
+                          }
+                        ],
+                        "arguments": {
+                        },
+                        "argManager": {
+                          "items": [
+                            {
+                              "parameters": [
+                                {
+                                  "value": true,
+                                  "controlAddress": "/useForMapping"
+                                }
+                              ],
+                              "niceName": "#1",
+                              "type": "Integer",
+                              "param": {
+                                "value": 0,
+                                "hexMode": false,
+                                "controlAddress": "/sequences/sequence/layers/mapping2/mapping/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "automation0": {
+                "parameters": [
+                  {
+                    "value": 1.0,
+                    "controlAddress": "/length"
+                  },
+                  {
+                    "value": 0.2969465255737305,
+                    "controlAddress": "/position"
+                  },
+                  {
+                    "value": 0.5894444584846497,
+                    "controlAddress": "/value"
+                  }
+                ],
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key 1",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": 0.50377357006073,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 1.0,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": 1.0,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 0.01680672168731689,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key 2",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  }
+                ]
+              },
+              "recorder": {
+                "parameters": [
+                  {
+                    "value": false,
+                    "controlAddress": "/isRecording"
+                  }
+                ],
+                "editorIsCollapsed": true
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": 88.0,
+                  "controlAddress": "/listSize"
+                },
+                {
+                  "value": [
+                    60.0,
+                    60.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 120,
+                  "hexMode": false,
+                  "controlAddress": "/uiHeight"
+                },
+                {
+                  "value": [
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    0.2117647081613541,
+                    1.0
+                  ],
+                  "controlAddress": "/layerColor"
+                },
+                {
+                  "value": 0.4765518307685852,
+                  "controlAddress": "/value"
+                }
+              ],
+              "niceName": "Mapping 3",
+              "type": "Mapping",
+              "mapping": {
+                "parameters": [
+                  {
+                    "value": -19.06207084655762,
+                    "controlAddress": "/outValue"
+                  }
+                ],
+                "niceName": "Mapping",
+                "type": "Mapping",
+                "input": {
+                },
+                "filters": {
+                  "items": [
+                    {
+                      "parameters": [
+                        {
+                          "value": -19.06207084655762,
+                          "controlAddress": "/out"
+                        }
+                      ],
+                      "niceName": "Remap",
+                      "type": "Remap",
+                      "filterParams": {
+                        "parameters": [
+                          {
+                            "value": [
+                              0.0,
+                              1.0
+                            ],
+                            "controlAddress": "/inputMin_Max"
+                          },
+                          {
+                            "value": [
+                              0.0,
+                              -39.99999618530273
+                            ],
+                            "controlAddress": "/targetMin_Max"
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "outputs": {
+                  "items": [
+                    {
+                      "niceName": "MappingOutput",
+                      "type": "BaseItem",
+                      "commandModule": "sissi",
+                      "commandPath": "",
+                      "commandType": "Custom Message",
+                      "command": {
+                        "parameters": [
+                          {
+                            "value": "/servo",
+                            "controlAddress": "/address"
+                          }
+                        ],
+                        "arguments": {
+                        },
+                        "argManager": {
+                          "items": [
+                            {
+                              "parameters": [
+                                {
+                                  "value": true,
+                                  "controlAddress": "/useForMapping"
+                                }
+                              ],
+                              "niceName": "#1",
+                              "type": "Integer",
+                              "param": {
+                                "value": -19,
+                                "hexMode": false,
+                                "controlAddress": "/sequences/sequence/layers/mapping3/mapping/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                              }
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "automation0": {
+                "parameters": [
+                  {
+                    "value": 1.0,
+                    "controlAddress": "/length"
+                  },
+                  {
+                    "value": 0.2969465255737305,
+                    "controlAddress": "/position"
+                  },
+                  {
+                    "value": 0.4765518307685852,
+                    "controlAddress": "/value"
+                  }
+                ],
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 0.0,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key 1",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": 0.4974446296691895,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 0.7983193397521973,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key 3",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": 1.0,
+                        "controlAddress": "/position"
+                      },
+                      {
+                        "value": 0.01680672168731689,
+                        "controlAddress": "/value"
+                      },
+                      {
+                        "value": "Linear",
+                        "controlAddress": "/easingType"
+                      }
+                    ],
+                    "niceName": "Key 2",
+                    "type": "BaseItem",
+                    "easing": {
+                    }
+                  }
+                ]
+              },
+              "recorder": {
+                "parameters": [
+                  {
+                    "value": false,
+                    "controlAddress": "/isRecording"
+                  }
+                ],
+                "editorIsCollapsed": true
+              }
+            }
+          ]
+        },
+        "cueManager": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": 0.9887217879295349,
+                  "controlAddress": "/time"
+                }
+              ],
+              "niceName": "Cue",
+              "type": "BaseItem"
+            }
+          ]
+        },
+        "editing": true
+      }
+    ]
+  }
+}
