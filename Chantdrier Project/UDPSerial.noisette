@@ -1,36 +1,310 @@
 {
   "metaData": {
-    "version": "1.6.4",
-    "versionNumber": 67076
+    "version": "1.6.5b2",
+    "versionNumber": 67077
   },
   "moduleManager": {
     "items": [
       {
-        "niceName": "Serial",
+        "parameters": [
+          {
+            "value": true,
+            "controlAddress": "/enabled"
+          },
+          {
+            "value": true,
+            "controlAddress": "/logIncoming"
+          },
+          {
+            "value": true,
+            "controlAddress": "/logOutgoing"
+          }
+        ],
+        "niceName": "Serial 1",
         "type": "Serial",
+        "scripts": {
+          "editorIsCollapsed": true
+        },
+        "params": {
+          "parameters": [
+            {
+              "value": "Lines",
+              "controlAddress": "/protocol"
+            },
+            {
+              "value": "Colon (:) separated",
+              "controlAddress": "/messageStructure"
+            },
+            {
+              "value": "USB Serial Port (COM18)",
+              "controlAddress": "/port"
+            },
+            {
+              "value": 115200,
+              "hexMode": false,
+              "controlAddress": "/baudRate"
+            }
+          ]
+        },
+        "templates": {
+          "items": [
+            {
+              "niceName": "Handshake",
+              "type": "BaseItem",
+              "menuPath": "",
+              "commandType": "Send string",
+              "params": [
+                {
+                  "parameters": [
+                    {
+                      "value": "handshake",
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Value"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/appendCR"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Append CR"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": true,
+                      "controlAddress": "/appendNL"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Append NL"
+                }
+              ]
+            },
+            {
+              "niceName": "Set servo",
+              "type": "BaseItem",
+              "menuPath": "",
+              "commandType": "Send values as string",
+              "customValues": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": true,
+                        "controlAddress": "/editable"
+                      },
+                      {
+                        "value": false,
+                        "controlAddress": "/useForMapping"
+                      }
+                    ],
+                    "niceName": "#1",
+                    "type": "Integer",
+                    "param": {
+                      "value": 0,
+                      "hexMode": false,
+                      "controlAddress": "/modules/serial1/templates/setServo/arguments/_1/_1",
+                      "type": "Integer",
+                      "niceName": "#1",
+                      "customizable": true,
+                      "removable": false,
+                      "description": "Argument #1, type int",
+                      "hideInEditor": true,
+                      "feedbackOnly": false
+                    }
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": false,
+                        "controlAddress": "/editable"
+                      },
+                      {
+                        "value": true,
+                        "controlAddress": "/useForMapping"
+                      }
+                    ],
+                    "niceName": "#2",
+                    "type": "Integer",
+                    "param": {
+                      "value": 0,
+                      "hexMode": false,
+                      "controlAddress": "/modules/serial1/templates/setServo/arguments/_2/_2",
+                      "type": "Integer",
+                      "niceName": "#2",
+                      "customizable": true,
+                      "removable": false,
+                      "description": "Argument #2, type int",
+                      "hideInEditor": true,
+                      "feedbackOnly": false
+                    }
+                  }
+                ]
+              },
+              "params": [
+                {
+                  "parameters": [
+                    {
+                      "value": ":",
+                      "controlAddress": "/separator"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Separator"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/appendCR"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Append CR"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": true,
+                      "controlAddress": "/appendNL"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Append NL"
+                }
+              ]
+            }
+          ]
+        },
+        "values": {
+          "parameters": [
+            {
+              "value": 2.0,
+              "controlAddress": "/id",
+              "type": "Float",
+              "niceName": "id",
+              "customizable": true,
+              "removable": true,
+              "description": "id",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            }
+          ]
+        },
+        "portID": "USB Serial Port (COM18)"
+      },
+      {
+        "parameters": [
+          {
+            "value": false,
+            "controlAddress": "/enabled"
+          },
+          {
+            "value": true,
+            "controlAddress": "/logIncoming"
+          },
+          {
+            "value": true,
+            "controlAddress": "/logOutgoing"
+          }
+        ],
+        "niceName": "UDP Live",
+        "type": "UDP",
         "scripts": {
         },
         "params": {
           "parameters": [
             {
-              "value": "USB Serial Port (COM18)",
-              "controlAddress": "/port"
+              "value": "Data255",
+              "controlAddress": "/protocol"
             }
-          ]
-        },
-        "values": {
-        },
-        "portID": "USB Serial Port (COM18)"
-      },
-      {
-        "niceName": "UDP",
-        "type": "UDP",
-        "scripts": {
-        },
-        "params": {
+          ],
           "containers": {
             "input": {
               "parameters": [
+                {
+                  "value": 12348,
+                  "hexMode": false,
+                  "controlAddress": "/localPort"
+                },
                 {
                   "value": true,
                   "controlAddress": "/isBound"
@@ -39,6 +313,11 @@
             },
             "output": {
               "parameters": [
+                {
+                  "value": 55035,
+                  "hexMode": false,
+                  "controlAddress": "/remotePort"
+                },
                 {
                   "value": true,
                   "controlAddress": "/isConnected"
@@ -49,6 +328,265 @@
         },
         "values": {
         }
+      },
+      {
+        "parameters": [
+          {
+            "value": true,
+            "controlAddress": "/logIncoming"
+          }
+        ],
+        "niceName": "OSC Chorale",
+        "type": "OSC",
+        "scripts": {
+        },
+        "params": {
+          "parameters": [
+            {
+              "value": true,
+              "controlAddress": "/autoAdd"
+            }
+          ],
+          "containers": {
+            "oscInput": {
+              "parameters": [
+                {
+                  "value": 54321,
+                  "hexMode": false,
+                  "controlAddress": "/localPort"
+                }
+              ]
+            },
+            "oscOutputs": {
+              "items": [
+                {
+                  "parameters": [
+                    {
+                      "value": 12345,
+                      "hexMode": false,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output",
+                  "type": "BaseItem"
+                }
+              ]
+            }
+          }
+        },
+        "values": {
+          "parameters": [
+            {
+              "value": -18,
+              "hexMode": false,
+              "controlAddress": "/_servo_0",
+              "type": "Integer",
+              "niceName": "/servo/0",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_servo_0"
+            },
+            {
+              "value": -50,
+              "hexMode": false,
+              "controlAddress": "/_servo_1",
+              "type": "Integer",
+              "niceName": "/servo/1",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_servo_1"
+            },
+            {
+              "value": -50,
+              "hexMode": false,
+              "controlAddress": "/_servo_2",
+              "type": "Integer",
+              "niceName": "/servo/2",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_servo_2"
+            },
+            {
+              "value": -49,
+              "hexMode": false,
+              "controlAddress": "/_servo_3",
+              "type": "Integer",
+              "niceName": "/servo/3",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_servo_3"
+            }
+          ]
+        },
+        "input": {
+          "parameters": [
+            {
+              "value": 54321,
+              "hexMode": false,
+              "controlAddress": "/localPort"
+            }
+          ]
+        },
+        "outputs": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": 12345,
+                  "hexMode": false,
+                  "controlAddress": "/remotePort"
+                }
+              ],
+              "niceName": "OSC Output",
+              "type": "BaseItem"
+            }
+          ]
+        }
+      },
+      {
+        "parameters": [
+          {
+            "value": [
+              20.0,
+              20.0
+            ],
+            "controlAddress": "/viewUIPosition"
+          },
+          {
+            "value": false,
+            "controlAddress": "/logIncoming"
+          }
+        ],
+        "niceName": "OSC Jack",
+        "type": "OSC",
+        "scripts": {
+        },
+        "params": {
+          "parameters": [
+            {
+              "value": true,
+              "controlAddress": "/autoAdd"
+            }
+          ],
+          "containers": {
+            "oscInput": {
+              "parameters": [
+                {
+                  "value": 54320,
+                  "hexMode": false,
+                  "controlAddress": "/localPort"
+                }
+              ]
+            },
+            "oscOutputs": {
+              "items": [
+                {
+                  "parameters": [
+                    {
+                      "value": 12345,
+                      "hexMode": false,
+                      "controlAddress": "/remotePort"
+                    }
+                  ],
+                  "niceName": "OSC Output",
+                  "type": "BaseItem"
+                }
+              ]
+            }
+          }
+        },
+        "values": {
+          "parameters": [
+            {
+              "value": -40,
+              "hexMode": false,
+              "controlAddress": "/_servo_0",
+              "type": "Integer",
+              "niceName": "/servo/0",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_servo_0"
+            },
+            {
+              "value": -50,
+              "hexMode": false,
+              "controlAddress": "/_servo_1",
+              "type": "Integer",
+              "niceName": "/servo/1",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_servo_1"
+            },
+            {
+              "value": -50,
+              "hexMode": false,
+              "controlAddress": "/_servo_2",
+              "type": "Integer",
+              "niceName": "/servo/2",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_servo_2"
+            },
+            {
+              "value": -49,
+              "hexMode": false,
+              "controlAddress": "/_servo_3",
+              "type": "Integer",
+              "niceName": "/servo/3",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_servo_3"
+            }
+          ]
+        },
+        "input": {
+          "parameters": [
+            {
+              "value": 54320,
+              "hexMode": false,
+              "controlAddress": "/localPort"
+            }
+          ]
+        },
+        "outputs": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": 12345,
+                  "hexMode": false,
+                  "controlAddress": "/remotePort"
+                }
+              ],
+              "niceName": "OSC Output",
+              "type": "BaseItem"
+            }
+          ]
+        }
       }
     ]
   },
@@ -58,10 +596,17 @@
         "parameters": [
           {
             "value": [
-              -262.0,
-              -74.0
+              -143.0,
+              -168.0
             ],
             "controlAddress": "/viewUIPosition"
+          },
+          {
+            "value": [
+              343.0,
+              326.0
+            ],
+            "controlAddress": "/viewUISize"
           },
           {
             "value": true,
@@ -69,7 +614,690 @@
           }
         ],
         "niceName": "State",
-        "type": "State"
+        "type": "State",
+        "processors": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": false,
+                  "controlAddress": "/enabled"
+                }
+              ],
+              "niceName": "Ping",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": "/modules/serial1/values/id",
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": "=",
+                          "controlAddress": "/comparisonFunction"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/alwaysTrigger"
+                        },
+                        {
+                          "value": 2.0,
+                          "controlAddress": "/reference"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "BaseItem",
+                    "commandModule": "oscChorale",
+                    "commandPath": "",
+                    "commandType": "Custom Message",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": "/id",
+                          "controlAddress": "/address"
+                        }
+                      ],
+                      "arguments": {
+                      },
+                      "argManager": {
+                        "items": [
+                          {
+                            "niceName": "#1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 2,
+                              "controlMode": 2,
+                              "reference": {
+                                "value": "/modules/serial1/values/id",
+                                "controlAddress": "/reference"
+                              },
+                              "hexMode": false,
+                              "controlAddress": "/states/state/processors/ping/consequencesTRUE/consequence/command/arguments/_1/_1"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "consequencesOff": {
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": 72,
+                  "hexMode": false,
+                  "controlAddress": "/outValue"
+                }
+              ],
+              "niceName": "Crane 0",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "input": {
+                "parameters": [
+                  {
+                    "value": "/modules/oscChorale/values/_servo_0",
+                    "controlAddress": "/inputValue"
+                  }
+                ]
+              },
+              "filters": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 72,
+                        "hexMode": false,
+                        "controlAddress": "/out"
+                      }
+                    ],
+                    "niceName": "Math",
+                    "type": "Math",
+                    "filterParams": {
+                    },
+                    "operationValue": {
+                      "value": 90,
+                      "hexMode": false,
+                      "controlAddress": "/states/state/processors/crane0/filters/math/filterParams/value"
+                    }
+                  }
+                ]
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "niceName": "MappingOutput",
+                    "type": "BaseItem",
+                    "commandModule": "serial1",
+                    "commandPath": "Templates",
+                    "commandType": "Set servo",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": ":",
+                          "controlAddress": "/separator"
+                        },
+                        {
+                          "value": false,
+                          "controlAddress": "/appendCR"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendNL"
+                        }
+                      ],
+                      "argManager": {
+                        "items": [
+                          {
+                            "parameters": [
+                              {
+                                "value": false,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 0,
+                              "hexMode": false,
+                              "controlAddress": "/states/state/processors/crane0/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                            }
+                          },
+                          {
+                            "parameters": [
+                              {
+                                "value": true,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#2",
+                            "type": "Integer",
+                            "param": {
+                              "value": 72,
+                              "hexMode": false,
+                              "controlAddress": "/states/state/processors/crane0/outputs/mappingOutput/command/arguments/_2/newIntParameter"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    20.0,
+                    20.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 40,
+                  "hexMode": false,
+                  "controlAddress": "/outValue"
+                }
+              ],
+              "niceName": "Crane 1",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "input": {
+                "parameters": [
+                  {
+                    "value": "/modules/oscChorale/values/_servo_1",
+                    "controlAddress": "/inputValue"
+                  }
+                ]
+              },
+              "filters": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 40,
+                        "hexMode": false,
+                        "controlAddress": "/out"
+                      }
+                    ],
+                    "niceName": "Math",
+                    "type": "Math",
+                    "filterParams": {
+                    },
+                    "operationValue": {
+                      "value": 90,
+                      "hexMode": false,
+                      "controlAddress": "/states/state/processors/crane1/filters/math/filterParams/value"
+                    }
+                  }
+                ]
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "niceName": "MappingOutput",
+                    "type": "BaseItem",
+                    "commandModule": "serial1",
+                    "commandPath": "Templates",
+                    "commandType": "Set servo",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": ":",
+                          "controlAddress": "/separator"
+                        },
+                        {
+                          "value": false,
+                          "controlAddress": "/appendCR"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendNL"
+                        }
+                      ],
+                      "argManager": {
+                        "items": [
+                          {
+                            "parameters": [
+                              {
+                                "value": false,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 1,
+                              "hexMode": false,
+                              "controlAddress": "/states/state/processors/crane1/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                            }
+                          },
+                          {
+                            "parameters": [
+                              {
+                                "value": true,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#2",
+                            "type": "Integer",
+                            "param": {
+                              "value": 40,
+                              "hexMode": false,
+                              "controlAddress": "/states/state/processors/crane1/outputs/mappingOutput/command/arguments/_2/newIntParameter"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    40.0,
+                    40.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 40,
+                  "hexMode": false,
+                  "controlAddress": "/outValue"
+                }
+              ],
+              "niceName": "Crane 2",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "input": {
+                "parameters": [
+                  {
+                    "value": "/modules/oscChorale/values/_servo_2",
+                    "controlAddress": "/inputValue"
+                  }
+                ]
+              },
+              "filters": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 40,
+                        "hexMode": false,
+                        "controlAddress": "/out"
+                      }
+                    ],
+                    "niceName": "Math",
+                    "type": "Math",
+                    "filterParams": {
+                    },
+                    "operationValue": {
+                      "value": 90,
+                      "hexMode": false,
+                      "controlAddress": "/states/state/processors/crane2/filters/math/filterParams/value"
+                    }
+                  }
+                ]
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "niceName": "MappingOutput",
+                    "type": "BaseItem",
+                    "ghostCommandData": {
+                      "argManager": {
+                      }
+                    },
+                    "ghostModuleName": "serial",
+                    "ghostCommandMenuPath": "Templates",
+                    "ghostCommandName": "Servo command"
+                  }
+                ]
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    60.0,
+                    60.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 41,
+                  "hexMode": false,
+                  "controlAddress": "/outValue"
+                }
+              ],
+              "niceName": "Crane 3",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "input": {
+                "parameters": [
+                  {
+                    "value": "/modules/oscChorale/values/_servo_3",
+                    "controlAddress": "/inputValue"
+                  }
+                ]
+              },
+              "filters": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 41,
+                        "hexMode": false,
+                        "controlAddress": "/out"
+                      }
+                    ],
+                    "niceName": "Math",
+                    "type": "Math",
+                    "filterParams": {
+                    },
+                    "operationValue": {
+                      "value": 90,
+                      "hexMode": false,
+                      "controlAddress": "/states/state/processors/crane3/filters/math/filterParams/value"
+                    }
+                  }
+                ]
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "niceName": "MappingOutput",
+                    "type": "BaseItem",
+                    "ghostCommandData": {
+                      "argManager": {
+                      }
+                    },
+                    "ghostModuleName": "serial",
+                    "ghostCommandMenuPath": "Templates",
+                    "ghostCommandName": "Servo command"
+                  }
+                ]
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    20.0,
+                    20.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 50,
+                  "hexMode": false,
+                  "controlAddress": "/outValue"
+                }
+              ],
+              "niceName": "Jack 0",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "input": {
+                "parameters": [
+                  {
+                    "value": "/modules/oscJack/values/_servo_0",
+                    "controlAddress": "/inputValue"
+                  }
+                ]
+              },
+              "filters": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 50,
+                        "hexMode": false,
+                        "controlAddress": "/out"
+                      }
+                    ],
+                    "niceName": "Math",
+                    "type": "Math",
+                    "filterParams": {
+                    },
+                    "operationValue": {
+                      "value": 90,
+                      "hexMode": false,
+                      "controlAddress": "/states/state/processors/jack0/filters/math/filterParams/value"
+                    }
+                  }
+                ]
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "niceName": "MappingOutput",
+                    "type": "BaseItem",
+                    "ghostCommandData": {
+                      "argManager": {
+                      }
+                    },
+                    "ghostModuleName": "serial",
+                    "ghostCommandMenuPath": "Templates",
+                    "ghostCommandName": "Servo command"
+                  }
+                ]
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    40.0,
+                    40.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 40,
+                  "hexMode": false,
+                  "controlAddress": "/outValue"
+                }
+              ],
+              "niceName": "Jack 1",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "input": {
+                "parameters": [
+                  {
+                    "value": "/modules/oscJack/values/_servo_1",
+                    "controlAddress": "/inputValue"
+                  }
+                ]
+              },
+              "filters": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 40,
+                        "hexMode": false,
+                        "controlAddress": "/out"
+                      }
+                    ],
+                    "niceName": "Math",
+                    "type": "Math",
+                    "filterParams": {
+                    },
+                    "operationValue": {
+                      "value": 90,
+                      "hexMode": false,
+                      "controlAddress": "/states/state/processors/jack1/filters/math/filterParams/value"
+                    }
+                  }
+                ]
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "niceName": "MappingOutput",
+                    "type": "BaseItem",
+                    "ghostCommandData": {
+                      "argManager": {
+                      }
+                    },
+                    "ghostModuleName": "serial",
+                    "ghostCommandMenuPath": "Templates",
+                    "ghostCommandName": "Servo command"
+                  }
+                ]
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    60.0,
+                    60.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 40,
+                  "hexMode": false,
+                  "controlAddress": "/outValue"
+                }
+              ],
+              "niceName": "Jack 2",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "input": {
+                "parameters": [
+                  {
+                    "value": "/modules/oscJack/values/_servo_2",
+                    "controlAddress": "/inputValue"
+                  }
+                ]
+              },
+              "filters": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 40,
+                        "hexMode": false,
+                        "controlAddress": "/out"
+                      }
+                    ],
+                    "niceName": "Math",
+                    "type": "Math",
+                    "filterParams": {
+                    },
+                    "operationValue": {
+                      "value": 90,
+                      "hexMode": false,
+                      "controlAddress": "/states/state/processors/jack2/filters/math/filterParams/value"
+                    }
+                  }
+                ]
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "niceName": "MappingOutput",
+                    "type": "BaseItem",
+                    "ghostCommandData": {
+                      "argManager": {
+                      }
+                    },
+                    "ghostModuleName": "serial",
+                    "ghostCommandMenuPath": "Templates",
+                    "ghostCommandName": "Servo command"
+                  }
+                ]
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    80.0,
+                    80.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 41,
+                  "hexMode": false,
+                  "controlAddress": "/outValue"
+                }
+              ],
+              "niceName": "Jack 3",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "input": {
+                "parameters": [
+                  {
+                    "value": "/modules/oscJack/values/_servo_3",
+                    "controlAddress": "/inputValue"
+                  }
+                ]
+              },
+              "filters": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": 41,
+                        "hexMode": false,
+                        "controlAddress": "/out"
+                      }
+                    ],
+                    "niceName": "Math",
+                    "type": "Math",
+                    "filterParams": {
+                    },
+                    "operationValue": {
+                      "value": 90,
+                      "hexMode": false,
+                      "controlAddress": "/states/state/processors/jack3/filters/math/filterParams/value"
+                    }
+                  }
+                ]
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "niceName": "MappingOutput",
+                    "type": "BaseItem",
+                    "ghostCommandData": {
+                      "argManager": {
+                      }
+                    },
+                    "ghostModuleName": "serial",
+                    "ghostCommandMenuPath": "Templates",
+                    "ghostCommandName": "Servo command"
+                  }
+                ]
+              }
+            }
+          ]
+        }
       }
     ]
   }

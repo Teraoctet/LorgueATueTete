@@ -7,16 +7,16 @@ const String FIRMWARE_VERSION = "v3.0";
 // ID and NAME //
 /////////////////
 #ifndef MULTI_SERVO
-const int SKULL_ID = 2; // SET SKULL ID HERE: 1 to 7
+const int SKULL_ID = 4; // SET SKULL ID HERE: 1 to 7
 #else
 const int SKULL_ID = 0; // do not change
 #endif
+String SKULL_NAMES[6] = { "Jack", "Pat", "Ninon", "Sissi", "Jerry", "Hubert"};
+const String SKULL_NAME = SKULL_NAMES[SKULL_ID];
 
 ///////////
 // Servo //
 ///////////
-const int SERVO_INIT_VALUE = 90; // init servo at mid position
-
 #ifndef MULTI_SERVO
 #include <Servo.h>
 const int SERVO_PIN = 5;
@@ -29,11 +29,14 @@ Adafruit_PWMServoDriver pwm = Adafruit_PWMServoDriver();
 #endif
 
 
-//////////
-// Ping //
-//////////
+///////////
+// Serial /
+///////////
+#define INPUT_SIZE 50
+char incBuffer[INPUT_SIZE];
 int pingTimeInMs = 1000;
 unsigned long lastPingTime = 0;
+
 
 void setup() {
 
@@ -41,40 +44,60 @@ void setup() {
 #ifndef MULTI_SERVO
   pinMode(SERVO_PIN, OUTPUT);
   servo.attach(SERVO_PIN);
-  servo.write(SERVO_INIT_VALUE);
+  servo.write(90); // init servo at mid-range
 #else
   pwm.begin();
   pwm.setPWMFreq(60);  // Analog servos run at ~60 Hz updates
 #endif
 
-  servo.write(0);
   Serial.begin(115200);
+  handshake();
 }
 
-void loop() {
+void handshake()
+{
+  Serial.println("name:" + String(SKULL_NAME));
+  Serial.println("firmware:" + String(FIRMWARE_VERSION));
+  // local IP
+  // target IP
+}
+
+void loop()
+{
   if ((unsigned long)(millis() - lastPingTime) > pingTimeInMs)
   {
-    Serial.print("id ");
-    Serial.println(SKULL_ID);
+    //Serial.println("ping");
+    Serial.println("id:" + String(SKULL_ID));
     lastPingTime = millis();
   }
-  
+
   while (Serial.available()) {
-    byte incoming[3];
-    Serial.readBytesUntil(255, incoming, 3);
-
-    if (sizeof(incoming) == 3)
+    byte inputSize = Serial.readBytesUntil('\n', incBuffer, INPUT_SIZE);
+    if (incBuffer[inputSize] == '\r')
     {
-      int servoIndex = incoming[0];
-      if (servoIndex > 7) return;
-      int servoValue = constrain(SERVO_INIT_VALUE + incoming[1], 0, 180);
+      //incBuffer[inputSize] = "";
+      inputSize--;
+    }
 
+    // Answer to handshake
+    if (!strcmp(incBuffer, "handshake"))
+      handshake();
+    
+      // Otherwise look for separator
+      char* separator = strchr(&incBuffer[0], ':');
+      if (separator)
+      {
+      int servoIndex = atoi(incBuffer);
+      
+       *separator = 0;
+      ++separator;
+
+      int servoValue = constrain(atoi(separator), 0, 180);
 #ifndef MULTI_SERVO
       servo.write(servoValue);
 #else
       pwm.setPWM(servoIndex, 0, map(servoValue, 0, 180, SERVOMIN, SERVOMAX));
-
 #endif
-    }
+      }
   }
 }
