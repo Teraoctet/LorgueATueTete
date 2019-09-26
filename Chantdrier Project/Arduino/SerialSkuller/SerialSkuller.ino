@@ -1,4 +1,4 @@
-const String FIRMWARE_VERSION = "v3.0";
+const String FIRMWARE_VERSION = "SerialSkuller";
 
 //#define MULTI_SERVO // COMMENT FOR CHOIR SKULLS
 
@@ -7,7 +7,7 @@ const String FIRMWARE_VERSION = "v3.0";
 // ID and NAME //
 /////////////////
 #ifndef MULTI_SERVO
-const int SKULL_ID = 4; // SET SKULL ID HERE: 1 to 7
+const int SKULL_ID = 1; // SET SKULL ID HERE: 1 to 7
 #else
 const int SKULL_ID = 0; // do not change
 #endif
@@ -17,6 +17,7 @@ const String SKULL_NAME = SKULL_NAMES[SKULL_ID];
 ///////////
 // Servo //
 ///////////
+const int SERVO_MID_VALUE = 90;
 #ifndef MULTI_SERVO
 #include <Servo.h>
 const int SERVO_PIN = 5;
@@ -43,7 +44,7 @@ void setup() {
   // set up servo
 #ifndef MULTI_SERVO
   pinMode(SERVO_PIN, OUTPUT);
-  servo.attach(SERVO_PIN);
+  servo.attach(SERVO_MID_VALUE);
   servo.write(90); // init servo at mid-range
 #else
   pwm.begin();
@@ -51,6 +52,7 @@ void setup() {
 #endif
 
   Serial.begin(115200);
+  delay(1000);
   handshake();
 }
 
@@ -92,7 +94,8 @@ void loop()
        *separator = 0;
       ++separator;
 
-      int servoValue = constrain(atoi(separator), 0, 180);
+      int servoValue = constrain(SERVO_MID_VALUE + atoi(separator), 0, 180);
+    Serial.println("servoValue:" + String(servoValue));
 #ifndef MULTI_SERVO
       servo.write(servoValue);
 #else
