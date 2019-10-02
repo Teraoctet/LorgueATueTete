@@ -1,4 +1,4 @@
-const String FIRMWARE_VERSION = "SerialSkuller";
+const String FIRMWARE_VERSION = "SS-v3.0";
 
 //#define MULTI_SERVO // COMMENT FOR CHOIR SKULLS
 
@@ -17,7 +17,6 @@ const String SKULL_NAME = SKULL_NAMES[SKULL_ID];
 ///////////
 // Servo //
 ///////////
-const int SERVO_MID_VALUE = 90;
 #ifndef MULTI_SERVO
 #include <Servo.h>
 const int SERVO_PIN = 5;
@@ -39,12 +38,12 @@ int pingTimeInMs = 1000;
 unsigned long lastPingTime = 0;
 
 
-void setup() {
-
+void setup()
+{
   // set up servo
 #ifndef MULTI_SERVO
   pinMode(SERVO_PIN, OUTPUT);
-  servo.attach(SERVO_MID_VALUE);
+  servo.attach(SERVO_PIN);
   servo.write(90); // init servo at mid-range
 #else
   pwm.begin();
@@ -52,7 +51,7 @@ void setup() {
 #endif
 
   Serial.begin(115200);
-  delay(1000);
+  delay(2000);
   handshake();
 }
 
@@ -84,23 +83,23 @@ void loop()
     // Answer to handshake
     if (!strcmp(incBuffer, "handshake"))
       handshake();
-    
-      // Otherwise look for separator
-      char* separator = strchr(&incBuffer[0], ':');
-      if (separator)
-      {
+
+    // Otherwise look for separator
+    char* separator = strchr(&incBuffer[0], ':');
+    if (separator)
+    {
       int servoIndex = atoi(incBuffer);
-      
-       *separator = 0;
+
+      *separator = 0;
       ++separator;
 
-      int servoValue = constrain(SERVO_MID_VALUE + atoi(separator), 0, 180);
-    Serial.println("servoValue:" + String(servoValue));
+      int servoValue = constrain(atoi(separator), 0, 180);
 #ifndef MULTI_SERVO
+      Serial.println("servoValue:" + String(servoValue));
       servo.write(servoValue);
 #else
       pwm.setPWM(servoIndex, 0, map(servoValue, 0, 180, SERVOMIN, SERVOMAX));
 #endif
-      }
+    }
   }
 }
