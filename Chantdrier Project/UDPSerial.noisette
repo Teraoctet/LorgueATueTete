@@ -136,7 +136,7 @@
                   {
                     "parameters": [
                       {
-                        "value": true,
+                        "value": false,
                         "controlAddress": "/editable"
                       },
                       {
@@ -266,7 +266,7 @@
               "feedbackOnly": false
             },
             {
-              "value": "Pat",
+              "value": "Sissi",
               "alwaysNotify": true,
               "controlAddress": "/name",
               "type": "String",
@@ -291,7 +291,7 @@
             }
           ]
         },
-        "portID": "USB Serial Port (COM18)"
+        "portID": "Lien s\trie sur Bluetooth standard (COM15)"
       },
       {
         "parameters": [
@@ -642,7 +642,7 @@
               "controlAddress": "/messageStructure"
             },
             {
-              "value": "USB Serial Port (COM7)",
+              "value": "USB Serial Port (COM18)",
               "controlAddress": "/port"
             },
             {
@@ -738,11 +738,11 @@
                   {
                     "parameters": [
                       {
-                        "value": true,
+                        "value": false,
                         "controlAddress": "/editable"
                       },
                       {
-                        "value": true,
+                        "value": false,
                         "controlAddress": "/useForMapping"
                       }
                     ],
@@ -880,7 +880,7 @@
               "feedbackOnly": false
             },
             {
-              "value": "",
+              "value": "Sissi",
               "alwaysNotify": true,
               "controlAddress": "/name",
               "type": "String",
@@ -892,7 +892,7 @@
               "feedbackOnly": false
             },
             {
-              "value": "3",
+              "value": "SS-v3.0",
               "alwaysNotify": true,
               "controlAddress": "/firmware",
               "type": "String",
@@ -905,7 +905,7 @@
             }
           ]
         },
-        "portID": "USB Serial Port (COM7)"
+        "portID": "USB Serial Port (COM18)"
       },
       {
         "parameters": [
@@ -1045,11 +1045,11 @@
                   {
                     "parameters": [
                       {
-                        "value": true,
+                        "value": false,
                         "controlAddress": "/editable"
                       },
                       {
-                        "value": true,
+                        "value": false,
                         "controlAddress": "/useForMapping"
                       }
                     ],
@@ -1462,7 +1462,7 @@
         "values": {
           "parameters": [
             {
-              "value": -35,
+              "value": -60,
               "hexMode": false,
               "controlAddress": "/_servo",
               "type": "Integer",
@@ -1475,7 +1475,7 @@
               "shortName": "_servo"
             },
             {
-              "value": 40,
+              "value": 64,
               "hexMode": false,
               "controlAddress": "/_servo_0",
               "type": "Integer",
@@ -1488,7 +1488,7 @@
               "shortName": "_servo_0"
             },
             {
-              "value": -70,
+              "value": 38,
               "hexMode": false,
               "controlAddress": "/_servo_1",
               "type": "Integer",
@@ -1501,7 +1501,7 @@
               "shortName": "_servo_1"
             },
             {
-              "value": -50,
+              "value": 0,
               "hexMode": false,
               "controlAddress": "/_servo_2",
               "type": "Integer",
@@ -1541,7 +1541,7 @@
               "shortName": "_servo_4"
             },
             {
-              "value": -25,
+              "value": -10,
               "hexMode": false,
               "controlAddress": "/_servo_5",
               "type": "Integer",
@@ -1647,7 +1647,7 @@
         "values": {
           "parameters": [
             {
-              "value": -40,
+              "value": -10,
               "hexMode": false,
               "controlAddress": "/_servo",
               "type": "Integer",
@@ -1660,7 +1660,7 @@
               "shortName": "_servo"
             },
             {
-              "value": 90,
+              "value": -19,
               "hexMode": false,
               "controlAddress": "/_servo_0",
               "type": "Integer",
@@ -1686,7 +1686,7 @@
               "shortName": "_servo_1"
             },
             {
-              "value": 60,
+              "value": 23,
               "hexMode": false,
               "controlAddress": "/_servo_2",
               "type": "Integer",
@@ -1699,7 +1699,7 @@
               "shortName": "_servo_2"
             },
             {
-              "value": 0,
+              "value": 64,
               "hexMode": false,
               "controlAddress": "/_servo_3",
               "type": "Integer",
@@ -1710,6 +1710,19 @@
               "hideInEditor": false,
               "feedbackOnly": false,
               "shortName": "_servo_3"
+            },
+            {
+              "value": -7,
+              "hexMode": false,
+              "controlAddress": "/_servo_5",
+              "type": "Integer",
+              "niceName": "/servo/5",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_servo_5"
             }
           ]
         },
@@ -1737,6 +1750,255 @@
             }
           ]
         }
+      },
+      {
+        "niceName": "Serial Jack",
+        "type": "Serial",
+        "scripts": {
+        },
+        "params": {
+          "parameters": [
+            {
+              "value": "Colon (:) separated",
+              "controlAddress": "/messageStructure"
+            },
+            {
+              "value": "Silicon Labs CP210x USB to UART Bridge (COM19)",
+              "controlAddress": "/port"
+            },
+            {
+              "value": 115200,
+              "hexMode": false,
+              "controlAddress": "/baudRate"
+            }
+          ]
+        },
+        "templates": {
+          "items": [
+            {
+              "niceName": "Handshake",
+              "type": "BaseItem",
+              "menuPath": "",
+              "commandType": "Send string",
+              "params": [
+                {
+                  "parameters": [
+                    {
+                      "value": "handshake",
+                      "controlAddress": "/value"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Value"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/appendCR"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Append CR"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": true,
+                      "controlAddress": "/appendNL"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Append NL"
+                }
+              ]
+            },
+            {
+              "niceName": "Set servo",
+              "type": "BaseItem",
+              "menuPath": "",
+              "commandType": "Send values as string",
+              "customValues": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": true,
+                        "controlAddress": "/editable"
+                      },
+                      {
+                        "value": false,
+                        "controlAddress": "/useForMapping"
+                      }
+                    ],
+                    "niceName": "#1 1",
+                    "type": "Integer"
+                  },
+                  {
+                    "parameters": [
+                      {
+                        "value": false,
+                        "controlAddress": "/editable"
+                      },
+                      {
+                        "value": true,
+                        "controlAddress": "/useForMapping"
+                      }
+                    ],
+                    "niceName": "#1",
+                    "type": "Integer"
+                  }
+                ]
+              },
+              "params": [
+                {
+                  "parameters": [
+                    {
+                      "value": ":",
+                      "controlAddress": "/separator"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Separator"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": false,
+                      "controlAddress": "/appendCR"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Append CR"
+                },
+                {
+                  "parameters": [
+                    {
+                      "value": true,
+                      "controlAddress": "/appendNL"
+                    },
+                    {
+                      "value": false,
+                      "minValue": 0,
+                      "maxValue": 1,
+                      "controlAddress": "/editable",
+                      "type": "Boolean",
+                      "niceName": "Editable",
+                      "customizable": false,
+                      "removable": false,
+                      "description": "If enabled, the parameter will be editable when instantiating this template",
+                      "hideInEditor": false,
+                      "feedbackOnly": false
+                    }
+                  ],
+                  "niceName": "Append NL"
+                }
+              ]
+            }
+          ]
+        },
+        "values": {
+          "parameters": [
+            {
+              "value": 0,
+              "alwaysNotify": true,
+              "hexMode": false,
+              "controlAddress": "/id",
+              "type": "Integer",
+              "niceName": "id",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": "Jack",
+              "alwaysNotify": true,
+              "controlAddress": "/name",
+              "type": "String",
+              "niceName": "name",
+              "customizable": true,
+              "removable": true,
+              "description": "name",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            },
+            {
+              "value": "SS-v3.0",
+              "alwaysNotify": true,
+              "controlAddress": "/firmware",
+              "type": "String",
+              "niceName": "firmware",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false
+            }
+          ]
+        },
+        "portID": "Silicon Labs CP210x USB to UART Bridge (COM19)"
       }
     ]
   },
@@ -1746,8 +2008,8 @@
         "parameters": [
           {
             "value": [
-              116.0,
-              -379.0
+              86.0,
+              -380.0
             ],
             "controlAddress": "/viewUIPosition"
           },
@@ -1894,6 +2156,29 @@
                         }
                       ]
                     }
+                  },
+                  {
+                    "niceName": "Consequence 4",
+                    "type": "BaseItem",
+                    "commandModule": "serialJack",
+                    "commandPath": "Templates",
+                    "commandType": "Handshake",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": "handshake",
+                          "controlAddress": "/value"
+                        },
+                        {
+                          "value": false,
+                          "controlAddress": "/appendCR"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendNL"
+                        }
+                      ]
+                    }
                   }
                 ]
               },
@@ -1903,7 +2188,7 @@
             {
               "parameters": [
                 {
-                  "value": 130,
+                  "value": 64,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
@@ -1924,12 +2209,17 @@
                   {
                     "parameters": [
                       {
+                        "value": false,
+                        "controlAddress": "/enabled"
+                      },
+                      {
                         "value": 130,
                         "hexMode": false,
                         "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
+                    "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
                     },
@@ -1974,17 +2264,7 @@
                               }
                             ],
                             "niceName": "#1",
-                            "type": "Integer",
-                            "param": {
-                              "value": 1,
-                              "controlMode": 2,
-                              "reference": {
-                                "value": "/modules/serial1/values/id",
-                                "controlAddress": "/reference"
-                              },
-                              "hexMode": false,
-                              "controlAddress": "/states/osc_Serial/processors/crane0/outputs/mappingOutput/command/arguments/_1/_2"
-                            }
+                            "type": "Integer"
                           },
                           {
                             "parameters": [
@@ -1996,7 +2276,7 @@
                             "niceName": "#2",
                             "type": "Integer",
                             "param": {
-                              "value": 130,
+                              "value": 64,
                               "hexMode": false,
                               "controlAddress": "/states/osc_Serial/processors/crane0/outputs/mappingOutput/command/arguments/_2/newIntParameter"
                             }
@@ -2018,7 +2298,7 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": 20,
+                  "value": 38,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
@@ -2039,12 +2319,17 @@
                   {
                     "parameters": [
                       {
-                        "value": 20,
+                        "value": false,
+                        "controlAddress": "/enabled"
+                      },
+                      {
+                        "value": 128,
                         "hexMode": false,
                         "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
+                    "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
                     },
@@ -2101,9 +2386,9 @@
                             "niceName": "#2",
                             "type": "Integer",
                             "param": {
-                              "value": 20,
+                              "value": 38,
                               "hexMode": false,
-                              "controlAddress": "/states/osc_Serial/processors/crane1/outputs/mappingOutput/command/arguments/_2/_2"
+                              "controlAddress": "/states/osc_Serial/processors/crane1/outputs/mappingOutput/command/arguments/_2/newIntParameter"
                             }
                           }
                         ]
@@ -2123,7 +2408,7 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": 40,
+                  "value": 0,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
@@ -2144,12 +2429,17 @@
                   {
                     "parameters": [
                       {
-                        "value": 40,
+                        "value": false,
+                        "controlAddress": "/enabled"
+                      },
+                      {
+                        "value": 90,
                         "hexMode": false,
                         "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
+                    "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
                     },
@@ -2166,13 +2456,54 @@
                   {
                     "niceName": "MappingOutput",
                     "type": "BaseItem",
-                    "ghostCommandData": {
+                    "commandModule": "serial3",
+                    "commandPath": "Templates",
+                    "commandType": "Set servo",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": ":",
+                          "controlAddress": "/separator"
+                        },
+                        {
+                          "value": false,
+                          "controlAddress": "/appendCR"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendNL"
+                        }
+                      ],
                       "argManager": {
+                        "items": [
+                          {
+                            "parameters": [
+                              {
+                                "value": false,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1",
+                            "type": "Integer"
+                          },
+                          {
+                            "parameters": [
+                              {
+                                "value": true,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#2",
+                            "type": "Integer",
+                            "param": {
+                              "value": 0,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/crane2/outputs/mappingOutput/command/arguments/_2/newIntParameter"
+                            }
+                          }
+                        ]
                       }
-                    },
-                    "ghostModuleName": "serial",
-                    "ghostCommandMenuPath": "Templates",
-                    "ghostCommandName": "Servo command"
+                    }
                   }
                 ]
               }
@@ -2187,7 +2518,7 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": 90,
+                  "value": 0,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
@@ -2208,12 +2539,17 @@
                   {
                     "parameters": [
                       {
+                        "value": false,
+                        "controlAddress": "/enabled"
+                      },
+                      {
                         "value": 90,
                         "hexMode": false,
                         "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
+                    "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
                     },
@@ -2230,13 +2566,54 @@
                   {
                     "niceName": "MappingOutput",
                     "type": "BaseItem",
-                    "ghostCommandData": {
+                    "commandModule": "serial4",
+                    "commandPath": "Templates",
+                    "commandType": "Set servo",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": ":",
+                          "controlAddress": "/separator"
+                        },
+                        {
+                          "value": false,
+                          "controlAddress": "/appendCR"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendNL"
+                        }
+                      ],
                       "argManager": {
+                        "items": [
+                          {
+                            "parameters": [
+                              {
+                                "value": false,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1",
+                            "type": "Integer"
+                          },
+                          {
+                            "parameters": [
+                              {
+                                "value": true,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#2",
+                            "type": "Integer",
+                            "param": {
+                              "value": 0,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/crane3/outputs/mappingOutput/command/arguments/_2/newIntParameter"
+                            }
+                          }
+                        ]
                       }
-                    },
-                    "ghostModuleName": "serial",
-                    "ghostCommandMenuPath": "Templates",
-                    "ghostCommandName": "Servo command"
+                    }
                   }
                 ]
               }
@@ -2251,7 +2628,7 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": 180,
+                  "value": -19,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
@@ -2272,12 +2649,17 @@
                   {
                     "parameters": [
                       {
-                        "value": 180,
+                        "value": false,
+                        "controlAddress": "/enabled"
+                      },
+                      {
+                        "value": 63,
                         "hexMode": false,
                         "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
+                    "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
                     },
@@ -2294,13 +2676,54 @@
                   {
                     "niceName": "MappingOutput",
                     "type": "BaseItem",
-                    "ghostCommandData": {
+                    "commandModule": "serialJack",
+                    "commandPath": "Templates",
+                    "commandType": "Set servo",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": ":",
+                          "controlAddress": "/separator"
+                        },
+                        {
+                          "value": false,
+                          "controlAddress": "/appendCR"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendNL"
+                        }
+                      ],
                       "argManager": {
+                        "items": [
+                          {
+                            "parameters": [
+                              {
+                                "value": false,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1 1",
+                            "type": "Integer"
+                          },
+                          {
+                            "parameters": [
+                              {
+                                "value": true,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1",
+                            "type": "Integer",
+                            "param": {
+                              "value": -19,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack0/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                            }
+                          }
+                        ]
                       }
-                    },
-                    "ghostModuleName": "serial",
-                    "ghostCommandMenuPath": "Templates",
-                    "ghostCommandName": "Servo command"
+                    }
                   }
                 ]
               }
@@ -2315,7 +2738,7 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": 40,
+                  "value": -50,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
@@ -2336,12 +2759,17 @@
                   {
                     "parameters": [
                       {
+                        "value": false,
+                        "controlAddress": "/enabled"
+                      },
+                      {
                         "value": 40,
                         "hexMode": false,
                         "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
+                    "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
                     },
@@ -2358,13 +2786,59 @@
                   {
                     "niceName": "MappingOutput",
                     "type": "BaseItem",
-                    "ghostCommandData": {
+                    "commandModule": "serialJack",
+                    "commandPath": "Templates",
+                    "commandType": "Set servo",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": ":",
+                          "controlAddress": "/separator"
+                        },
+                        {
+                          "value": false,
+                          "controlAddress": "/appendCR"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendNL"
+                        }
+                      ],
                       "argManager": {
+                        "items": [
+                          {
+                            "parameters": [
+                              {
+                                "value": false,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1 1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 1,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack1/outputs/mappingOutput/command/arguments/_11/newIntParameter"
+                            }
+                          },
+                          {
+                            "parameters": [
+                              {
+                                "value": true,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1",
+                            "type": "Integer",
+                            "param": {
+                              "value": -50,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack1/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                            }
+                          }
+                        ]
                       }
-                    },
-                    "ghostModuleName": "serial",
-                    "ghostCommandMenuPath": "Templates",
-                    "ghostCommandName": "Servo command"
+                    }
                   }
                 ]
               }
@@ -2379,7 +2853,7 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": 150,
+                  "value": 23,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
@@ -2400,12 +2874,17 @@
                   {
                     "parameters": [
                       {
-                        "value": 150,
+                        "value": false,
+                        "controlAddress": "/enabled"
+                      },
+                      {
+                        "value": 100,
                         "hexMode": false,
                         "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
+                    "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
                     },
@@ -2422,13 +2901,59 @@
                   {
                     "niceName": "MappingOutput",
                     "type": "BaseItem",
-                    "ghostCommandData": {
+                    "commandModule": "serialJack",
+                    "commandPath": "Templates",
+                    "commandType": "Set servo",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": ":",
+                          "controlAddress": "/separator"
+                        },
+                        {
+                          "value": false,
+                          "controlAddress": "/appendCR"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendNL"
+                        }
+                      ],
                       "argManager": {
+                        "items": [
+                          {
+                            "parameters": [
+                              {
+                                "value": false,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1 1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 2,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack2/outputs/mappingOutput/command/arguments/_11/newIntParameter"
+                            }
+                          },
+                          {
+                            "parameters": [
+                              {
+                                "value": true,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 23,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack2/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                            }
+                          }
+                        ]
                       }
-                    },
-                    "ghostModuleName": "serial",
-                    "ghostCommandMenuPath": "Templates",
-                    "ghostCommandName": "Servo command"
+                    }
                   }
                 ]
               }
@@ -2443,7 +2968,7 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": 90,
+                  "value": 64,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
@@ -2464,12 +2989,17 @@
                   {
                     "parameters": [
                       {
+                        "value": false,
+                        "controlAddress": "/enabled"
+                      },
+                      {
                         "value": 90,
                         "hexMode": false,
                         "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
+                    "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
                     },
@@ -2486,13 +3016,59 @@
                   {
                     "niceName": "MappingOutput",
                     "type": "BaseItem",
-                    "ghostCommandData": {
+                    "commandModule": "serialJack",
+                    "commandPath": "Templates",
+                    "commandType": "Set servo",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": ":",
+                          "controlAddress": "/separator"
+                        },
+                        {
+                          "value": false,
+                          "controlAddress": "/appendCR"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendNL"
+                        }
+                      ],
                       "argManager": {
+                        "items": [
+                          {
+                            "parameters": [
+                              {
+                                "value": false,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1 1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 3,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack3/outputs/mappingOutput/command/arguments/_11/newIntParameter"
+                            }
+                          },
+                          {
+                            "parameters": [
+                              {
+                                "value": true,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 64,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack3/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                            }
+                          }
+                        ]
                       }
-                    },
-                    "ghostModuleName": "serial",
-                    "ghostCommandMenuPath": "Templates",
-                    "ghostCommandName": "Servo command"
+                    }
                   }
                 ]
               }
@@ -3052,7 +3628,7 @@
                             "niceName": "#1",
                             "type": "String",
                             "param": {
-                              "value": "",
+                              "value": "Sissi",
                               "controlMode": 2,
                               "reference": {
                                 "value": "/modules/serial3/values/name",
@@ -3144,7 +3720,7 @@
                             "niceName": "#1",
                             "type": "String",
                             "param": {
-                              "value": "3",
+                              "value": "SS-v3.0",
                               "controlMode": 2,
                               "reference": {
                                 "value": "/modules/serial3/values/firmware",
@@ -3431,7 +4007,7 @@
                             "niceName": "#1",
                             "type": "String",
                             "param": {
-                              "value": "Pat",
+                              "value": "Sissi",
                               "controlMode": 2,
                               "reference": {
                                 "value": "/modules/serial1/values/name",
@@ -3641,8 +4217,8 @@
         "parameters": [
           {
             "value": [
-              -154.0,
-              -202.0
+              -156.0,
+              -204.0
             ],
             "controlAddress": "/viewUIPosition"
           },
@@ -4002,6 +4578,385 @@
                             "param": {
                               "value": "127.0.0.1",
                               "controlAddress": "/states/serial4_OSCChorale/processors/ip_fromName_/consequencesTRUE/consequence/command/arguments/_1/newStringParameter"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "consequencesOff": {
+              }
+            }
+          ]
+        }
+      },
+      {
+        "parameters": [
+          {
+            "value": [
+              -283.0,
+              -37.0
+            ],
+            "controlAddress": "/viewUIPosition"
+          },
+          {
+            "value": [
+              245.0,
+              133.0
+            ],
+            "controlAddress": "/viewUISize"
+          },
+          {
+            "value": true,
+            "controlAddress": "/active"
+          }
+        ],
+        "niceName": "Serial 4 => OSC Chorale 1",
+        "type": "State",
+        "processors": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": true,
+                  "controlAddress": "/enabled"
+                },
+                {
+                  "value": [
+                    20.0,
+                    20.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                }
+              ],
+              "niceName": "Id 4",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": "/modules/serial4/values/id",
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": "=",
+                          "controlAddress": "/comparisonFunction"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/alwaysTrigger"
+                        },
+                        {
+                          "value": 4.0,
+                          "controlAddress": "/reference"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "BaseItem",
+                    "commandModule": "oscChorale",
+                    "commandPath": "Templates",
+                    "commandType": "Id",
+                    "command": {
+                      "arguments": {
+                      },
+                      "argManager": {
+                        "items": [
+                          {
+                            "niceName": "#1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 4,
+                              "controlMode": 2,
+                              "reference": {
+                                "value": "/modules/serial4/values/id",
+                                "controlAddress": "/reference"
+                              },
+                              "hexMode": false,
+                              "controlAddress": "/states/serial4_OSCChorale1/processors/id4/consequencesTRUE/consequence/command/arguments/_1/newIntParameter"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "consequencesOff": {
+              }
+            },
+            {
+              "niceName": "name",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": "/modules/serial4/values/name",
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": "!=",
+                          "controlAddress": "/comparisonFunction"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/alwaysTrigger"
+                        },
+                        {
+                          "value": "",
+                          "controlAddress": "/reference"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "BaseItem",
+                    "commandModule": "oscChorale",
+                    "commandPath": "Templates",
+                    "commandType": "Name",
+                    "command": {
+                      "arguments": {
+                      },
+                      "argManager": {
+                        "items": [
+                          {
+                            "niceName": "#2",
+                            "type": "Integer",
+                            "param": {
+                              "value": 4,
+                              "controlMode": 2,
+                              "reference": {
+                                "value": "/modules/serial4/values/id",
+                                "controlAddress": "/reference"
+                              },
+                              "hexMode": false,
+                              "controlAddress": "/states/serial4_OSCChorale1/processors/name/consequencesTRUE/consequence/command/arguments/_2/newIntParameter"
+                            }
+                          },
+                          {
+                            "niceName": "#1",
+                            "type": "String",
+                            "param": {
+                              "value": "",
+                              "controlMode": 2,
+                              "reference": {
+                                "value": "/modules/serial4/values/name",
+                                "controlAddress": "/reference"
+                              },
+                              "controlAddress": "/states/serial4_OSCChorale1/processors/name/consequencesTRUE/consequence/command/arguments/_1/newStringParameter"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "consequencesOff": {
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    20.0,
+                    20.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                }
+              ],
+              "niceName": "firmware",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": "/modules/serial4/values/firmware",
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": "!=",
+                          "controlAddress": "/comparisonFunction"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/alwaysTrigger"
+                        },
+                        {
+                          "value": "",
+                          "controlAddress": "/reference"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "BaseItem",
+                    "commandModule": "oscChorale",
+                    "commandPath": "Templates",
+                    "commandType": "Firmware",
+                    "command": {
+                      "arguments": {
+                      },
+                      "argManager": {
+                        "items": [
+                          {
+                            "niceName": "#2",
+                            "type": "Integer",
+                            "param": {
+                              "value": 4,
+                              "controlMode": 2,
+                              "reference": {
+                                "value": "/modules/serial4/values/id",
+                                "controlAddress": "/reference"
+                              },
+                              "hexMode": false,
+                              "controlAddress": "/states/serial4_OSCChorale1/processors/firmware/consequencesTRUE/consequence/command/arguments/_2/newIntParameter"
+                            }
+                          },
+                          {
+                            "niceName": "#1",
+                            "type": "String",
+                            "param": {
+                              "value": "",
+                              "controlMode": 2,
+                              "reference": {
+                                "value": "/modules/serial4/values/firmware",
+                                "controlAddress": "/reference"
+                              },
+                              "controlAddress": "/states/serial4_OSCChorale1/processors/firmware/consequencesTRUE/consequence/command/arguments/_1/newStringParameter"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "consequencesOff": {
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    40.0,
+                    40.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                }
+              ],
+              "niceName": "ip (from name)",
+              "editorIsCollapsed": true,
+              "type": "Action",
+              "conditions": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": "/modules/serial4/values/name",
+                        "controlAddress": "/inputValue"
+                      }
+                    ],
+                    "niceName": "From Input Value",
+                    "type": "From Input Value",
+                    "comparator": {
+                      "parameters": [
+                        {
+                          "value": "!=",
+                          "controlAddress": "/comparisonFunction"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/alwaysTrigger"
+                        },
+                        {
+                          "value": "",
+                          "controlAddress": "/reference"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              "consequences": {
+                "items": [
+                  {
+                    "niceName": "Consequence",
+                    "type": "BaseItem",
+                    "commandModule": "oscChorale",
+                    "commandPath": "Templates",
+                    "commandType": "Name",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": "/ip",
+                          "controlAddress": "/address"
+                        }
+                      ],
+                      "arguments": {
+                      },
+                      "argManager": {
+                        "items": [
+                          {
+                            "niceName": "#2",
+                            "type": "Integer",
+                            "param": {
+                              "value": 4,
+                              "controlMode": 2,
+                              "reference": {
+                                "value": "/modules/serial4/values/id",
+                                "controlAddress": "/reference"
+                              },
+                              "hexMode": false,
+                              "controlAddress": "/states/serial4_OSCChorale1/processors/ip_fromName_/consequencesTRUE/consequence/command/arguments/_2/newIntParameter"
+                            }
+                          },
+                          {
+                            "niceName": "#1",
+                            "type": "String",
+                            "param": {
+                              "value": "127.0.0.1",
+                              "controlAddress": "/states/serial4_OSCChorale1/processors/ip_fromName_/consequencesTRUE/consequence/command/arguments/_1/newStringParameter"
                             }
                           }
                         ]
