@@ -1,7 +1,105 @@
 {
   "metaData": {
-    "version": "1.6.5b6",
+    "version": "1.6.5b7",
     "versionNumber": 67077
+  },
+  "dashboardManager": {
+    "parameters": [
+      {
+        "value": false,
+        "controlAddress": "/editMode"
+      }
+    ],
+    "items": [
+      {
+        "niceName": "Dashboard",
+        "type": "BaseItem",
+        "itemManager": {
+          "items": [
+            {
+              "parameters": [
+                {
+                  "value": [
+                    -188.0,
+                    -139.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": [
+                    200.0,
+                    50.0
+                  ],
+                  "controlAddress": "/viewUISize"
+                },
+                {
+                  "value": "Jack",
+                  "controlAddress": "/customText",
+                  "enabled": true
+                },
+                {
+                  "value": true,
+                  "controlAddress": "/showValue"
+                }
+              ],
+              "niceName": "Dashboard Item",
+              "type": "DashboardParameterItem",
+              "ghostAddress": "/modules/serialJack/parameters/isConnected",
+              "controllable": "/modules/serialJack/parameters/isConnected"
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    -287.0,
+                    -44.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": [
+                    200.0,
+                    200.0
+                  ],
+                  "controlAddress": "/viewUISize"
+                }
+              ],
+              "niceName": "Dashboard Item 1",
+              "type": "DashboardCCItem",
+              "ghostAddress": "/modules/oscChorale/values",
+              "container": "/modules/oscChorale/values"
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    -21.0,
+                    -71.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": [
+                    319.0,
+                    50.0
+                  ],
+                  "controlAddress": "/viewUISize"
+                },
+                {
+                  "value": "bouche Jack",
+                  "controlAddress": "/customText",
+                  "enabled": true
+                }
+              ],
+              "niceName": "Dashboard Item 2",
+              "type": "DashboardParameterItem",
+              "ghostAddress": "/modules/oscJack/values/_servo_3",
+              "controllable": "/modules/oscJack/values/_servo_3"
+            }
+          ]
+        }
+      }
+    ]
   },
   "moduleManager": {
     "items": [
@@ -40,7 +138,7 @@
               "controlAddress": "/messageStructure"
             },
             {
-              "value": "Not connected or disconnected",
+              "value": "USB Serial Port (COM5)",
               "controlAddress": "/port"
             },
             {
@@ -176,7 +274,19 @@
                       }
                     ],
                     "niceName": "#2",
-                    "type": "Integer"
+                    "type": "Integer",
+                    "param": {
+                      "value": 90,
+                      "hexMode": false,
+                      "controlAddress": "/modules/serial1/templates/setServo/arguments/_2/newIntParameter",
+                      "type": "Integer",
+                      "niceName": "New Int Parameter",
+                      "customizable": true,
+                      "removable": false,
+                      "description": "",
+                      "hideInEditor": true,
+                      "feedbackOnly": false
+                    }
                   }
                 ]
               },
@@ -206,7 +316,7 @@
                 {
                   "parameters": [
                     {
-                      "value": false,
+                      "value": true,
                       "controlAddress": "/appendCR"
                     },
                     {
@@ -288,10 +398,21 @@
               "description": "",
               "hideInEditor": false,
               "feedbackOnly": false
+            },
+            {
+              "value": 90.0,
+              "controlAddress": "/servoValue",
+              "type": "Float",
+              "niceName": "servoValue",
+              "customizable": true,
+              "removable": true,
+              "description": "servoValue",
+              "hideInEditor": false,
+              "feedbackOnly": false
             }
           ]
         },
-        "portID": "Lien s\trie sur Bluetooth standard (COM15)"
+        "portID": "USB Serial Port (COM5)"
       },
       {
         "parameters": [
@@ -902,6 +1023,17 @@
               "description": "",
               "hideInEditor": false,
               "feedbackOnly": false
+            },
+            {
+              "value": 23.0,
+              "controlAddress": "/servoValue",
+              "type": "Float",
+              "niceName": "servoValue",
+              "customizable": true,
+              "removable": true,
+              "description": "servoValue",
+              "hideInEditor": false,
+              "feedbackOnly": false
             }
           ]
         },
@@ -1187,7 +1319,7 @@
               "feedbackOnly": false
             },
             {
-              "value": "",
+              "value": "Jerry",
               "alwaysNotify": true,
               "controlAddress": "/name",
               "type": "String",
@@ -1199,7 +1331,7 @@
               "feedbackOnly": false
             },
             {
-              "value": "",
+              "value": "SS-v3.0",
               "alwaysNotify": true,
               "controlAddress": "/firmware",
               "type": "String",
@@ -1209,6 +1341,17 @@
               "description": "",
               "hideInEditor": false,
               "feedbackOnly": false
+            },
+            {
+              "value": 0.0,
+              "controlAddress": "/servoValue",
+              "type": "Float",
+              "niceName": "servoValue",
+              "customizable": true,
+              "removable": true,
+              "description": "servoValue",
+              "hideInEditor": false,
+              "feedbackOnly": false
             }
           ]
         },
@@ -1216,6 +1359,10 @@
       },
       {
         "parameters": [
+          {
+            "value": true,
+            "controlAddress": "/enabled"
+          },
           {
             "value": true,
             "controlAddress": "/logIncoming"
@@ -1462,7 +1609,7 @@
         "values": {
           "parameters": [
             {
-              "value": -60,
+              "value": -1,
               "hexMode": false,
               "controlAddress": "/_servo",
               "type": "Integer",
@@ -1475,7 +1622,7 @@
               "shortName": "_servo"
             },
             {
-              "value": 64,
+              "value": 55,
               "hexMode": false,
               "controlAddress": "/_servo_0",
               "type": "Integer",
@@ -1488,7 +1635,7 @@
               "shortName": "_servo_0"
             },
             {
-              "value": 38,
+              "value": -60,
               "hexMode": false,
               "controlAddress": "/_servo_1",
               "type": "Integer",
@@ -1501,7 +1648,7 @@
               "shortName": "_servo_1"
             },
             {
-              "value": 0,
+              "value": 10,
               "hexMode": false,
               "controlAddress": "/_servo_2",
               "type": "Integer",
@@ -1527,7 +1674,7 @@
               "shortName": "_servo_3"
             },
             {
-              "value": 1,
+              "value": -11,
               "alwaysNotify": true,
               "hexMode": false,
               "controlAddress": "/_servo_4",
@@ -1541,7 +1688,7 @@
               "shortName": "_servo_4"
             },
             {
-              "value": -10,
+              "value": -25,
               "hexMode": false,
               "controlAddress": "/_servo_5",
               "type": "Integer",
@@ -1595,6 +1742,10 @@
       {
         "parameters": [
           {
+            "value": true,
+            "controlAddress": "/enabled"
+          },
+          {
             "value": [
               20.0,
               20.0
@@ -1602,8 +1753,12 @@
             "controlAddress": "/viewUIPosition"
           },
           {
-            "value": false,
+            "value": true,
             "controlAddress": "/logIncoming"
+          },
+          {
+            "value": true,
+            "controlAddress": "/logOutgoing"
           }
         ],
         "niceName": "OSC Jack",
@@ -1660,7 +1815,7 @@
               "shortName": "_servo"
             },
             {
-              "value": -19,
+              "value": 142,
               "hexMode": false,
               "controlAddress": "/_servo_0",
               "type": "Integer",
@@ -1673,7 +1828,7 @@
               "shortName": "_servo_0"
             },
             {
-              "value": -50,
+              "value": 41,
               "hexMode": false,
               "controlAddress": "/_servo_1",
               "type": "Integer",
@@ -1686,7 +1841,7 @@
               "shortName": "_servo_1"
             },
             {
-              "value": 23,
+              "value": 80,
               "hexMode": false,
               "controlAddress": "/_servo_2",
               "type": "Integer",
@@ -1699,7 +1854,7 @@
               "shortName": "_servo_2"
             },
             {
-              "value": 64,
+              "value": 50,
               "hexMode": false,
               "controlAddress": "/_servo_3",
               "type": "Integer",
@@ -1712,7 +1867,20 @@
               "shortName": "_servo_3"
             },
             {
-              "value": -7,
+              "value": 78,
+              "hexMode": false,
+              "controlAddress": "/_servo_4",
+              "type": "Integer",
+              "niceName": "/servo/4",
+              "customizable": true,
+              "removable": true,
+              "description": "",
+              "hideInEditor": false,
+              "feedbackOnly": false,
+              "shortName": "_servo_4"
+            },
+            {
+              "value": 77,
               "hexMode": false,
               "controlAddress": "/_servo_5",
               "type": "Integer",
@@ -1752,6 +1920,12 @@
         }
       },
       {
+        "parameters": [
+          {
+            "value": true,
+            "controlAddress": "/enabled"
+          }
+        ],
         "niceName": "Serial Jack",
         "type": "Serial",
         "scripts": {
@@ -1763,7 +1937,7 @@
               "controlAddress": "/messageStructure"
             },
             {
-              "value": "Silicon Labs CP210x USB to UART Bridge (COM19)",
+              "value": "Silicon Labs CP210x USB to UART Bridge (COM4)",
               "controlAddress": "/port"
             },
             {
@@ -1806,7 +1980,7 @@
                 {
                   "parameters": [
                     {
-                      "value": false,
+                      "value": true,
                       "controlAddress": "/appendCR"
                     },
                     {
@@ -1868,7 +2042,19 @@
                       }
                     ],
                     "niceName": "#1 1",
-                    "type": "Integer"
+                    "type": "Integer",
+                    "param": {
+                      "value": 2,
+                      "hexMode": false,
+                      "controlAddress": "/modules/serialJack/templates/setServo/arguments/_11/newIntParameter",
+                      "type": "Integer",
+                      "niceName": "New Int Parameter",
+                      "customizable": true,
+                      "removable": false,
+                      "description": "",
+                      "hideInEditor": true,
+                      "feedbackOnly": false
+                    }
                   },
                   {
                     "parameters": [
@@ -1882,7 +2068,19 @@
                       }
                     ],
                     "niceName": "#1",
-                    "type": "Integer"
+                    "type": "Integer",
+                    "param": {
+                      "value": 80,
+                      "hexMode": false,
+                      "controlAddress": "/modules/serialJack/templates/setServo/arguments/_1/newIntParameter",
+                      "type": "Integer",
+                      "niceName": "New Int Parameter",
+                      "customizable": true,
+                      "removable": false,
+                      "description": "",
+                      "hideInEditor": true,
+                      "feedbackOnly": false
+                    }
                   }
                 ]
               },
@@ -1912,7 +2110,7 @@
                 {
                   "parameters": [
                     {
-                      "value": false,
+                      "value": true,
                       "controlAddress": "/appendCR"
                     },
                     {
@@ -1995,10 +2193,21 @@
               "description": "",
               "hideInEditor": false,
               "feedbackOnly": false
+            },
+            {
+              "value": 50.0,
+              "controlAddress": "/servoValue",
+              "type": "Float",
+              "niceName": "servoValue",
+              "customizable": true,
+              "removable": true,
+              "description": "servoValue",
+              "hideInEditor": false,
+              "feedbackOnly": false
             }
           ]
         },
-        "portID": "Silicon Labs CP210x USB to UART Bridge (COM19)"
+        "portID": "Silicon Labs CP210x USB to UART Bridge (COM4)"
       }
     ]
   },
@@ -2008,8 +2217,8 @@
         "parameters": [
           {
             "value": [
-              86.0,
-              -380.0
+              119.0,
+              -404.0
             ],
             "controlAddress": "/viewUIPosition"
           },
@@ -2170,7 +2379,7 @@
                           "controlAddress": "/value"
                         },
                         {
-                          "value": false,
+                          "value": true,
                           "controlAddress": "/appendCR"
                         },
                         {
@@ -2188,7 +2397,7 @@
             {
               "parameters": [
                 {
-                  "value": 64,
+                  "value": 55,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
@@ -2211,22 +2420,12 @@
                       {
                         "value": false,
                         "controlAddress": "/enabled"
-                      },
-                      {
-                        "value": 130,
-                        "hexMode": false,
-                        "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
                     "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
-                    },
-                    "operationValue": {
-                      "value": 90,
-                      "hexMode": false,
-                      "controlAddress": "/states/osc_Serial/processors/crane0/filters/math/filterParams/value"
                     }
                   }
                 ]
@@ -2246,7 +2445,7 @@
                           "controlAddress": "/separator"
                         },
                         {
-                          "value": false,
+                          "value": true,
                           "controlAddress": "/appendCR"
                         },
                         {
@@ -2274,12 +2473,7 @@
                               }
                             ],
                             "niceName": "#2",
-                            "type": "Integer",
-                            "param": {
-                              "value": 64,
-                              "hexMode": false,
-                              "controlAddress": "/states/osc_Serial/processors/crane0/outputs/mappingOutput/command/arguments/_2/newIntParameter"
-                            }
+                            "type": "Integer"
                           }
                         ]
                       }
@@ -2298,7 +2492,7 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": 38,
+                  "value": -60,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
@@ -2321,22 +2515,12 @@
                       {
                         "value": false,
                         "controlAddress": "/enabled"
-                      },
-                      {
-                        "value": 128,
-                        "hexMode": false,
-                        "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
                     "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
-                    },
-                    "operationValue": {
-                      "value": 90,
-                      "hexMode": false,
-                      "controlAddress": "/states/osc_Serial/processors/crane1/filters/math/filterParams/value"
                     }
                   }
                 ]
@@ -2386,7 +2570,7 @@
                             "niceName": "#2",
                             "type": "Integer",
                             "param": {
-                              "value": 38,
+                              "value": -60,
                               "hexMode": false,
                               "controlAddress": "/states/osc_Serial/processors/crane1/outputs/mappingOutput/command/arguments/_2/newIntParameter"
                             }
@@ -2408,7 +2592,7 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": 0,
+                  "value": 10,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
@@ -2431,22 +2615,12 @@
                       {
                         "value": false,
                         "controlAddress": "/enabled"
-                      },
-                      {
-                        "value": 90,
-                        "hexMode": false,
-                        "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
                     "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
-                    },
-                    "operationValue": {
-                      "value": 90,
-                      "hexMode": false,
-                      "controlAddress": "/states/osc_Serial/processors/crane2/filters/math/filterParams/value"
                     }
                   }
                 ]
@@ -2496,7 +2670,7 @@
                             "niceName": "#2",
                             "type": "Integer",
                             "param": {
-                              "value": 0,
+                              "value": 10,
                               "hexMode": false,
                               "controlAddress": "/states/osc_Serial/processors/crane2/outputs/mappingOutput/command/arguments/_2/newIntParameter"
                             }
@@ -2541,22 +2715,12 @@
                       {
                         "value": false,
                         "controlAddress": "/enabled"
-                      },
-                      {
-                        "value": 90,
-                        "hexMode": false,
-                        "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
                     "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
-                    },
-                    "operationValue": {
-                      "value": 90,
-                      "hexMode": false,
-                      "controlAddress": "/states/osc_Serial/processors/crane3/filters/math/filterParams/value"
                     }
                   }
                 ]
@@ -2604,12 +2768,7 @@
                               }
                             ],
                             "niceName": "#2",
-                            "type": "Integer",
-                            "param": {
-                              "value": 0,
-                              "hexMode": false,
-                              "controlAddress": "/states/osc_Serial/processors/crane3/outputs/mappingOutput/command/arguments/_2/newIntParameter"
-                            }
+                            "type": "Integer"
                           }
                         ]
                       }
@@ -2628,12 +2787,12 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": -19,
+                  "value": 142,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
               ],
-              "niceName": "Jack 0",
+              "niceName": "Jack 0 aam",
               "editorIsCollapsed": true,
               "type": "Mapping",
               "input": {
@@ -2651,22 +2810,12 @@
                       {
                         "value": false,
                         "controlAddress": "/enabled"
-                      },
-                      {
-                        "value": 63,
-                        "hexMode": false,
-                        "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
                     "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
-                    },
-                    "operationValue": {
-                      "value": 90,
-                      "hexMode": false,
-                      "controlAddress": "/states/osc_Serial/processors/jack0/filters/math/filterParams/value"
                     }
                   }
                 ]
@@ -2686,7 +2835,7 @@
                           "controlAddress": "/separator"
                         },
                         {
-                          "value": false,
+                          "value": true,
                           "controlAddress": "/appendCR"
                         },
                         {
@@ -2704,7 +2853,12 @@
                               }
                             ],
                             "niceName": "#1 1",
-                            "type": "Integer"
+                            "type": "Integer",
+                            "param": {
+                              "value": 0,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack0Aam/outputs/mappingOutput/command/arguments/_11/newIntParameter"
+                            }
                           },
                           {
                             "parameters": [
@@ -2716,9 +2870,9 @@
                             "niceName": "#1",
                             "type": "Integer",
                             "param": {
-                              "value": -19,
+                              "value": 142,
                               "hexMode": false,
-                              "controlAddress": "/states/osc_Serial/processors/jack0/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                              "controlAddress": "/states/osc_Serial/processors/jack0Aam/outputs/mappingOutput/command/arguments/_1/newIntParameter"
                             }
                           }
                         ]
@@ -2738,12 +2892,12 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": -50,
+                  "value": 41,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
               ],
-              "niceName": "Jack 1",
+              "niceName": "Jack 1 oui",
               "editorIsCollapsed": true,
               "type": "Mapping",
               "input": {
@@ -2761,22 +2915,12 @@
                       {
                         "value": false,
                         "controlAddress": "/enabled"
-                      },
-                      {
-                        "value": 40,
-                        "hexMode": false,
-                        "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
                     "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
-                    },
-                    "operationValue": {
-                      "value": 90,
-                      "hexMode": false,
-                      "controlAddress": "/states/osc_Serial/processors/jack1/filters/math/filterParams/value"
                     }
                   }
                 ]
@@ -2796,7 +2940,7 @@
                           "controlAddress": "/separator"
                         },
                         {
-                          "value": false,
+                          "value": true,
                           "controlAddress": "/appendCR"
                         },
                         {
@@ -2818,7 +2962,7 @@
                             "param": {
                               "value": 1,
                               "hexMode": false,
-                              "controlAddress": "/states/osc_Serial/processors/jack1/outputs/mappingOutput/command/arguments/_11/newIntParameter"
+                              "controlAddress": "/states/osc_Serial/processors/jack1Oui/outputs/mappingOutput/command/arguments/_11/newIntParameter"
                             }
                           },
                           {
@@ -2831,9 +2975,9 @@
                             "niceName": "#1",
                             "type": "Integer",
                             "param": {
-                              "value": -50,
+                              "value": 41,
                               "hexMode": false,
-                              "controlAddress": "/states/osc_Serial/processors/jack1/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                              "controlAddress": "/states/osc_Serial/processors/jack1Oui/outputs/mappingOutput/command/arguments/_1/newIntParameter"
                             }
                           }
                         ]
@@ -2853,12 +2997,12 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": 23,
+                  "value": 80,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
               ],
-              "niceName": "Jack 2",
+              "niceName": "Jack 2 non",
               "editorIsCollapsed": true,
               "type": "Mapping",
               "input": {
@@ -2876,22 +3020,12 @@
                       {
                         "value": false,
                         "controlAddress": "/enabled"
-                      },
-                      {
-                        "value": 100,
-                        "hexMode": false,
-                        "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
                     "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
-                    },
-                    "operationValue": {
-                      "value": 90,
-                      "hexMode": false,
-                      "controlAddress": "/states/osc_Serial/processors/jack2/filters/math/filterParams/value"
                     }
                   }
                 ]
@@ -2911,7 +3045,7 @@
                           "controlAddress": "/separator"
                         },
                         {
-                          "value": false,
+                          "value": true,
                           "controlAddress": "/appendCR"
                         },
                         {
@@ -2933,7 +3067,7 @@
                             "param": {
                               "value": 2,
                               "hexMode": false,
-                              "controlAddress": "/states/osc_Serial/processors/jack2/outputs/mappingOutput/command/arguments/_11/newIntParameter"
+                              "controlAddress": "/states/osc_Serial/processors/jack2Non/outputs/mappingOutput/command/arguments/_11/newIntParameter"
                             }
                           },
                           {
@@ -2946,9 +3080,9 @@
                             "niceName": "#1",
                             "type": "Integer",
                             "param": {
-                              "value": 23,
+                              "value": 80,
                               "hexMode": false,
-                              "controlAddress": "/states/osc_Serial/processors/jack2/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                              "controlAddress": "/states/osc_Serial/processors/jack2Non/outputs/mappingOutput/command/arguments/_1/newIntParameter"
                             }
                           }
                         ]
@@ -2968,12 +3102,12 @@
                   "controlAddress": "/viewUIPosition"
                 },
                 {
-                  "value": 64,
+                  "value": 50,
                   "hexMode": false,
                   "controlAddress": "/outValue"
                 }
               ],
-              "niceName": "Jack 3",
+              "niceName": "Jack 3 bouche",
               "editorIsCollapsed": true,
               "type": "Mapping",
               "input": {
@@ -2991,22 +3125,12 @@
                       {
                         "value": false,
                         "controlAddress": "/enabled"
-                      },
-                      {
-                        "value": 90,
-                        "hexMode": false,
-                        "controlAddress": "/out"
                       }
                     ],
                     "niceName": "Math",
                     "editorIsCollapsed": true,
                     "type": "Math",
                     "filterParams": {
-                    },
-                    "operationValue": {
-                      "value": 90,
-                      "hexMode": false,
-                      "controlAddress": "/states/osc_Serial/processors/jack3/filters/math/filterParams/value"
                     }
                   }
                 ]
@@ -3026,7 +3150,7 @@
                           "controlAddress": "/separator"
                         },
                         {
-                          "value": false,
+                          "value": true,
                           "controlAddress": "/appendCR"
                         },
                         {
@@ -3048,7 +3172,7 @@
                             "param": {
                               "value": 3,
                               "hexMode": false,
-                              "controlAddress": "/states/osc_Serial/processors/jack3/outputs/mappingOutput/command/arguments/_11/newIntParameter"
+                              "controlAddress": "/states/osc_Serial/processors/jack3Bouche/outputs/mappingOutput/command/arguments/_11/newIntParameter"
                             }
                           },
                           {
@@ -3061,9 +3185,219 @@
                             "niceName": "#1",
                             "type": "Integer",
                             "param": {
-                              "value": 64,
+                              "value": 50,
                               "hexMode": false,
-                              "controlAddress": "/states/osc_Serial/processors/jack3/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                              "controlAddress": "/states/osc_Serial/processors/jack3Bouche/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    100.0,
+                    100.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 78,
+                  "hexMode": false,
+                  "controlAddress": "/outValue"
+                }
+              ],
+              "niceName": "Jack 4 yeux Y",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "input": {
+                "parameters": [
+                  {
+                    "value": "/modules/oscJack/values/_servo_4",
+                    "controlAddress": "/inputValue"
+                  }
+                ]
+              },
+              "filters": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": false,
+                        "controlAddress": "/enabled"
+                      }
+                    ],
+                    "niceName": "Math",
+                    "editorIsCollapsed": true,
+                    "type": "Math",
+                    "filterParams": {
+                    }
+                  }
+                ]
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "niceName": "MappingOutput",
+                    "type": "BaseItem",
+                    "commandModule": "serialJack",
+                    "commandPath": "Templates",
+                    "commandType": "Set servo",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": ":",
+                          "controlAddress": "/separator"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendCR"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendNL"
+                        }
+                      ],
+                      "argManager": {
+                        "items": [
+                          {
+                            "parameters": [
+                              {
+                                "value": false,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1 1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 4,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack4YeuxY/outputs/mappingOutput/command/arguments/_11/newIntParameter"
+                            }
+                          },
+                          {
+                            "parameters": [
+                              {
+                                "value": true,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 78,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack4YeuxY/outputs/mappingOutput/command/arguments/_1/newIntParameter"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "parameters": [
+                {
+                  "value": [
+                    120.0,
+                    120.0
+                  ],
+                  "controlAddress": "/viewUIPosition"
+                },
+                {
+                  "value": 77,
+                  "hexMode": false,
+                  "controlAddress": "/outValue"
+                }
+              ],
+              "niceName": "Jack 5 yeux X",
+              "editorIsCollapsed": true,
+              "type": "Mapping",
+              "input": {
+                "parameters": [
+                  {
+                    "value": "/modules/oscJack/values/_servo_5",
+                    "controlAddress": "/inputValue"
+                  }
+                ]
+              },
+              "filters": {
+                "items": [
+                  {
+                    "parameters": [
+                      {
+                        "value": false,
+                        "controlAddress": "/enabled"
+                      }
+                    ],
+                    "niceName": "Math",
+                    "editorIsCollapsed": true,
+                    "type": "Math",
+                    "filterParams": {
+                    }
+                  }
+                ]
+              },
+              "outputs": {
+                "items": [
+                  {
+                    "niceName": "MappingOutput",
+                    "type": "BaseItem",
+                    "commandModule": "serialJack",
+                    "commandPath": "Templates",
+                    "commandType": "Set servo",
+                    "command": {
+                      "parameters": [
+                        {
+                          "value": ":",
+                          "controlAddress": "/separator"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendCR"
+                        },
+                        {
+                          "value": true,
+                          "controlAddress": "/appendNL"
+                        }
+                      ],
+                      "argManager": {
+                        "items": [
+                          {
+                            "parameters": [
+                              {
+                                "value": false,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1 1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 5,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack5YeuxX/outputs/mappingOutput/command/arguments/_11/newIntParameter"
+                            }
+                          },
+                          {
+                            "parameters": [
+                              {
+                                "value": true,
+                                "controlAddress": "/useForMapping"
+                              }
+                            ],
+                            "niceName": "#1",
+                            "type": "Integer",
+                            "param": {
+                              "value": 77,
+                              "hexMode": false,
+                              "controlAddress": "/states/osc_Serial/processors/jack5YeuxX/outputs/mappingOutput/command/arguments/_1/newIntParameter"
                             }
                           }
                         ]
@@ -4386,7 +4720,7 @@
                             "niceName": "#1",
                             "type": "String",
                             "param": {
-                              "value": "",
+                              "value": "Jerry",
                               "controlMode": 2,
                               "reference": {
                                 "value": "/modules/serial4/values/name",
@@ -4478,7 +4812,7 @@
                             "niceName": "#1",
                             "type": "String",
                             "param": {
-                              "value": "",
+                              "value": "SS-v3.0",
                               "controlMode": 2,
                               "reference": {
                                 "value": "/modules/serial4/values/firmware",
@@ -4613,7 +4947,7 @@
             "controlAddress": "/active"
           }
         ],
-        "niceName": "Serial 4 => OSC Chorale 1",
+        "niceName": "Jack => OSC Chorale",
         "type": "State",
         "processors": {
           "items": [
@@ -4631,7 +4965,7 @@
                   "controlAddress": "/viewUIPosition"
                 }
               ],
-              "niceName": "Id 4",
+              "niceName": "Id",
               "editorIsCollapsed": true,
               "type": "Action",
               "conditions": {
@@ -4639,7 +4973,7 @@
                   {
                     "parameters": [
                       {
-                        "value": "/modules/serial4/values/id",
+                        "value": "/modules/serialJack/values/id",
                         "controlAddress": "/inputValue"
                       }
                     ],
@@ -4656,7 +4990,8 @@
                           "controlAddress": "/alwaysTrigger"
                         },
                         {
-                          "value": 4.0,
+                          "value": 0,
+                          "hexMode": false,
                           "controlAddress": "/reference"
                         }
                       ]
@@ -4681,14 +5016,14 @@
                             "niceName": "#1",
                             "type": "Integer",
                             "param": {
-                              "value": 4,
+                              "value": 0,
                               "controlMode": 2,
                               "reference": {
-                                "value": "/modules/serial4/values/id",
+                                "value": "/modules/serialJack/values/id",
                                 "controlAddress": "/reference"
                               },
                               "hexMode": false,
-                              "controlAddress": "/states/serial4_OSCChorale1/processors/id4/consequencesTRUE/consequence/command/arguments/_1/newIntParameter"
+                              "controlAddress": "/states/jack_OSCChorale/processors/id/consequencesTRUE/consequence/command/arguments/_1/newIntParameter"
                             }
                           }
                         ]
@@ -4709,7 +5044,7 @@
                   {
                     "parameters": [
                       {
-                        "value": "/modules/serial4/values/name",
+                        "value": "/modules/serialJack/values/name",
                         "controlAddress": "/inputValue"
                       }
                     ],
@@ -4751,27 +5086,27 @@
                             "niceName": "#2",
                             "type": "Integer",
                             "param": {
-                              "value": 4,
+                              "value": 0,
                               "controlMode": 2,
                               "reference": {
-                                "value": "/modules/serial4/values/id",
+                                "value": "/modules/serialJack/values/id",
                                 "controlAddress": "/reference"
                               },
                               "hexMode": false,
-                              "controlAddress": "/states/serial4_OSCChorale1/processors/name/consequencesTRUE/consequence/command/arguments/_2/newIntParameter"
+                              "controlAddress": "/states/jack_OSCChorale/processors/name/consequencesTRUE/consequence/command/arguments/_2/newIntParameter"
                             }
                           },
                           {
                             "niceName": "#1",
                             "type": "String",
                             "param": {
-                              "value": "",
+                              "value": "Jack",
                               "controlMode": 2,
                               "reference": {
-                                "value": "/modules/serial4/values/name",
+                                "value": "/modules/serialJack/values/name",
                                 "controlAddress": "/reference"
                               },
-                              "controlAddress": "/states/serial4_OSCChorale1/processors/name/consequencesTRUE/consequence/command/arguments/_1/newStringParameter"
+                              "controlAddress": "/states/jack_OSCChorale/processors/name/consequencesTRUE/consequence/command/arguments/_1/newStringParameter"
                             }
                           }
                         ]
@@ -4801,7 +5136,7 @@
                   {
                     "parameters": [
                       {
-                        "value": "/modules/serial4/values/firmware",
+                        "value": "/modules/serialJack/values/firmware",
                         "controlAddress": "/inputValue"
                       }
                     ],
@@ -4843,27 +5178,27 @@
                             "niceName": "#2",
                             "type": "Integer",
                             "param": {
-                              "value": 4,
+                              "value": 0,
                               "controlMode": 2,
                               "reference": {
-                                "value": "/modules/serial4/values/id",
+                                "value": "/modules/serialJack/values/id",
                                 "controlAddress": "/reference"
                               },
                               "hexMode": false,
-                              "controlAddress": "/states/serial4_OSCChorale1/processors/firmware/consequencesTRUE/consequence/command/arguments/_2/newIntParameter"
+                              "controlAddress": "/states/jack_OSCChorale/processors/firmware/consequencesTRUE/consequence/command/arguments/_2/newIntParameter"
                             }
                           },
                           {
                             "niceName": "#1",
                             "type": "String",
                             "param": {
-                              "value": "",
+                              "value": "SS-v3.0",
                               "controlMode": 2,
                               "reference": {
-                                "value": "/modules/serial4/values/firmware",
+                                "value": "/modules/serialJack/values/firmware",
                                 "controlAddress": "/reference"
                               },
-                              "controlAddress": "/states/serial4_OSCChorale1/processors/firmware/consequencesTRUE/consequence/command/arguments/_1/newStringParameter"
+                              "controlAddress": "/states/jack_OSCChorale/processors/firmware/consequencesTRUE/consequence/command/arguments/_1/newStringParameter"
                             }
                           }
                         ]
@@ -4893,7 +5228,7 @@
                   {
                     "parameters": [
                       {
-                        "value": "/modules/serial4/values/name",
+                        "value": "/modules/serialJack/values/name",
                         "controlAddress": "/inputValue"
                       }
                     ],
@@ -4941,14 +5276,14 @@
                             "niceName": "#2",
                             "type": "Integer",
                             "param": {
-                              "value": 4,
+                              "value": 0,
                               "controlMode": 2,
                               "reference": {
-                                "value": "/modules/serial4/values/id",
+                                "value": "/modules/serialJack/values/id",
                                 "controlAddress": "/reference"
                               },
                               "hexMode": false,
-                              "controlAddress": "/states/serial4_OSCChorale1/processors/ip_fromName_/consequencesTRUE/consequence/command/arguments/_2/newIntParameter"
+                              "controlAddress": "/states/jack_OSCChorale/processors/ip_fromName_/consequencesTRUE/consequence/command/arguments/_2/newIntParameter"
                             }
                           },
                           {
@@ -4956,7 +5291,7 @@
                             "type": "String",
                             "param": {
                               "value": "127.0.0.1",
-                              "controlAddress": "/states/serial4_OSCChorale1/processors/ip_fromName_/consequencesTRUE/consequence/command/arguments/_1/newStringParameter"
+                              "controlAddress": "/states/jack_OSCChorale/processors/ip_fromName_/consequencesTRUE/consequence/command/arguments/_1/newStringParameter"
                             }
                           }
                         ]
