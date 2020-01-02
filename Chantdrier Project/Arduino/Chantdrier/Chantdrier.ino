@@ -15,10 +15,10 @@
 #ifndef SOLIST
 const int SKULL_ID = 1; // SET SKULL ID HERE: 1 to 7
 #else
-const int SKULL_ID = 6; // do not change
+const int SKULL_ID = 5; // do not change
 #endif
 
-String SKULL_NAMES[7] = { "Jack", "Pat", "Ninon", "Jerry", "Sissi", "Hubert", "Chantdrier"};
+String SKULL_NAMES[6] = { "Jack", "Pat", "Ninon", "Jerry", "Sissi", "Chantdrier"};
 const String SKULL_NAME = SKULL_NAMES[SKULL_ID];
 
 const String FIRMWARE_VERSION = "v1.0";
@@ -118,9 +118,10 @@ void setup(void)
     UdpOSC.begin(oscPort);
 
     // send handshake message
-    UdpOSC.beginPacket(outIp, outPort);
+    /*UdpOSC.beginPacket(outIp, outPort);
     handshake_message().send(UdpOSC);
-    UdpOSC.endPacket();
+    UdpOSC.endPacket();*/
+    send_handshake(outIp);
 
     Serial.println("broadcasting addresses:");
     Serial.println(broadcastIP1.toString());
@@ -181,6 +182,11 @@ void wifi_connect()
   WiFi.begin(ssid, password);
 }
 
+void get_handshake(OSCMessage & msg, int addrOffset)
+{
+  set_remote_ip(UdpOSC.remoteIP());
+}
+
 void set_remote_ip(const IPAddress& ip)
 {
   // set remote IP
@@ -200,16 +206,33 @@ void set_remote_ip(const IPAddress& ip)
 }
 
 // TODO: use ping as handshake
-OSCMessage handshake_message()
+//OSCMessage handshake_message()
+void send_handshake(const IPAddress& targetIp)
 {
-  OSCMessage msg("/handshake");
-  msg.add(SKULL_ID);
-  msg.add(SKULL_NAME.c_str());
-  msg.add(WiFi.localIP().toString().c_str());
+    UdpOSC.beginPacket(targetIp, outPort);
+    OSCMessage namemsg("/name");
+    namemsg.add(SKULL_ID);
+    namemsg.add(SKULL_NAME.c_str());
+    namemsg.send(UdpOSC);
+      UdpOSC.endPacket();
+    
+    UdpOSC.beginPacket(targetIp, outPort);
+    OSCMessage ipmsg("/ip");
+    ipmsg.add(SKULL_ID);
+    ipmsg.add(WiFi.localIP().toString().c_str());
+    ipmsg.send(UdpOSC);
+      UdpOSC.endPacket();
+    
+    UdpOSC.beginPacket(targetIp, outPort);
+    OSCMessage firmwaremsg("/firmware");
+    firmwaremsg.add(SKULL_ID);
+    firmwaremsg.add(FIRMWARE_VERSION.c_str());
+    firmwaremsg.send(UdpOSC);
 
+      UdpOSC.endPacket();
   // get and send target IP
-  msg.add(outIp.toString().c_str());
-  return msg;
+  //msg.add(outIp.toString().c_str());
+  //return msg;
 }
 
 void loop(void)
@@ -220,12 +243,10 @@ void loop(void)
   {
     if (gotHandshake)
     {
-      OSCMessage pingmsg("/ping");
+      OSCMessage pingmsg("/id");
       pingmsg.add(SKULL_ID);
-      pingmsg.add(SKULL_NAME.c_str());
-      pingmsg.add(WiFi.localIP().toString().c_str());
-      pingmsg.add(FIRMWARE_VERSION.c_str());
       send_message(pingmsg);
+
 
       Serial.print("ping to: ");
       Serial.println(outIp.toString());
@@ -234,6 +255,7 @@ void loop(void)
     } else
     {
       // broadcast handshake message
+      /*
       UdpOSC.beginPacket(broadcastIP1, outPort);
       handshake_message().send(UdpOSC);
       UdpOSC.endPacket();
@@ -251,7 +273,13 @@ void loop(void)
       UdpOSC.endPacket();
       UdpOSC.beginPacket(broadcastIP6, outPort);
       handshake_message().send(UdpOSC);
-      UdpOSC.endPacket();
+      UdpOSC.endPacket();*/
+      send_handshake(broadcastIP1);
+      send_handshake(broadcastIP2);
+      send_handshake(broadcastIP3);
+      send_handshake(broadcastIP4);
+      send_handshake(broadcastIP5);
+      send_handshake(broadcastIP6);
       Serial.println("--- broadcasting handshake... ---");
       delay(500);
     }
@@ -312,6 +340,7 @@ void loop(void)
         set_remote_ip(UdpOSC.remoteIP());
 
       bundleIN.route("/servo", set_servo);
+      bundleIN.route("/handshake", get_handshake);
     } else {
       OSCErrorCode error = bundleIN.getError();
       Serial.print("error: ");
